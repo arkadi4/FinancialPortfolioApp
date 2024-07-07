@@ -1,0 +1,55 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".home.HomeFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+
+        <TextView
+            android:id="@+id/tv_massage"
+            android:layout_width="0dp"
+            android:padding="10dp"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textSize="30sp"
+            android:text="This is your partfolio"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="32dp"/>
+
+        <Button
+            android:id="@+id/btnGoToPortfolio"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Portfolio List"
+            app:layout_constraintTop_toBottomOf="@id/tv_massage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/btnGoToSettings"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Settings"
+            app:layout_constraintTop_toBottomOf="@id/btnGoToPortfolio"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="16dp"/>
+
+        <Button
+            android:id="@+id/btnGoToAssetList"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Asset list"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnGoToSettings" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

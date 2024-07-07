@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:alpha="0.8"
+    android:elevation="10dp"
+    android:backgroundTint="#31ebcf"
+    app:cardCornerRadius="20dp">
+
+
+    <TextView
+        android:id="@+id/tv_asset_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:paddingTop="10dp"
+
+        android:elevation="10dp"
+        android:paddingBottom="10dp"
+        android:text="Asset Name"
+        android:textSize="30sp" />
+
+
+</androidx.cardview.widget.CardView>
