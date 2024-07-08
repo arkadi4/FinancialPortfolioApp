@@ -1,5 +1,5 @@
 // HomeFragment.kt
-package com.example.financialportfolioapp.home
+package com.example.financialportfolioapp.presentation.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.financialportfolioapp.R
 import com.example.financialportfolioapp.databinding.FragmentHomeBinding
-import com.example.financialportfolioapp.partfolioList.PartfolioListFragment
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null

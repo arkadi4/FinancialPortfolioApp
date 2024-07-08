@@ -1,4 +1,4 @@
-package com.example.financialportfolioapp.assetList
+package com.example.financialportfolioapp.presentation.assetList
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
