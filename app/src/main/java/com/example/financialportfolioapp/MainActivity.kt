@@ -14,5 +14,5 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         navController = Navigation.findNavController(this, R.id.nav_host_fragment)
-        }
     }
+}

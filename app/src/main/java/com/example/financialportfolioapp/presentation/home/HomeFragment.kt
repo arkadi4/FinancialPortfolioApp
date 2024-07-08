@@ -15,7 +15,8 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
@@ -32,7 +33,7 @@ class HomeFragment : Fragment() {
         binding.btnGoToAssetList.setOnClickListener {
             findNavController().navigate(R.id.action_home_fragment_to_asset_list)
         }
-        binding.btnGoToSettings.setOnClickListener{
+        binding.btnGoToSettings.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_settings_fragment)
         }
     }
@@ -41,9 +42,4 @@ class HomeFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-    companion object{
-        @JvmStatic
-        fun newInstance() = HomeFragment()
-    }
-
 }

@@ -6,11 +6,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".presentation.partfolio.PartfolioListFragment">
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="30dp"
-        android:text="Your partfolios"/>
+        android:text="Your partfolios"
+        android:textSize="30dp" />
 
 
 </LinearLayout>
