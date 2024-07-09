@@ -22,7 +22,7 @@
 
     <fragment
         android:id="@+id/portfolio_list_fragment"
-        android:name="com.example.financialportfolioapp.presentation.partfolio.PartfolioListFragment"
+        android:name="com.example.financialportfolioapp.presentation.partfolio.PortfolioListFragment"
         android:label="Portfolio"
         tools:layout="@layout/fragment_portfolio_list" />
 

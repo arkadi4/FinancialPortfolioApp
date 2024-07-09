@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.financialportfolioapp.databinding.FragmentPortfolioListBinding
 
-class PartfolioListFragment : Fragment() {
+class PortfolioListFragment : Fragment() {
 
     private var _binding: FragmentPortfolioListBinding? = null
     private val binding get() = _binding!!
