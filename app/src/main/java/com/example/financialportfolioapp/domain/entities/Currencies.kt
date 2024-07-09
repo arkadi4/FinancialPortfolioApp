@@ -1,6 +1,6 @@
 package com.example.financialportfolioapp.domain.entities
 
-abstract class Currencies: Asset() {
+abstract class Currencies : Asset() {
     abstract var amount: Double
     var nameOfDefaultCurrency: String = "BYN"
 }
