@@ -4,13 +4,11 @@ import java.util.Date
 
 interface PortfolioCashInterface {
     var amount: Double
+    var priceHistory: MutableMap<Date, Double>
 }
 
 interface PortfolioValuablePaperInterface {
     var amount: Int
-}
-
-interface PriceHistoryInterface {
     var priceHistory: MutableMap<Date, Double>
 }
 
@@ -20,7 +18,7 @@ data class Currency(
     override var date: Date,
     override var price: Double,
     override var amount: Double,
-) : AssetInterface, PortfolioCashInterface, PriceHistoryInterface {
+) : AssetInterface, PortfolioCashInterface {
     override var priceHistory: MutableMap<Date, Double> = mutableMapOf(date to price)
 }
 
@@ -37,7 +35,7 @@ data class Share(
     override var amount: Int,
     override val country: String,
     override val economySector: String,
-) : AssetInterface, PortfolioValuablePaperInterface, MetaInfo, PriceHistoryInterface {
+) : AssetInterface, PortfolioValuablePaperInterface, MetaInfo {
     override var priceHistory: MutableMap<Date, Double> = mutableMapOf(date to price)
 }
 
@@ -59,8 +57,7 @@ data class InterestBearingBond(
 ) : AssetInterface,
     PortfolioValuablePaperInterface,
     MetaInfo,
-    InterestBearingBondInterface,
-    PriceHistoryInterface {
+    InterestBearingBondInterface {
     override var priceHistory: MutableMap<Date, Double> = mutableMapOf(date to price)
 }
 

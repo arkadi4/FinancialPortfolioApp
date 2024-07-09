@@ -4,6 +4,7 @@ import com.example.financialportfolioapp.domain.entities.Asset
 import com.example.financialportfolioapp.domain.entities.AssetInterface
 import com.example.financialportfolioapp.domain.entities.Currency
 import com.example.financialportfolioapp.domain.entities.InterestBearingBond
+import com.example.financialportfolioapp.domain.entities.PortfolioCashInterface
 import com.example.financialportfolioapp.domain.entities.Share
 import java.util.Date
 
