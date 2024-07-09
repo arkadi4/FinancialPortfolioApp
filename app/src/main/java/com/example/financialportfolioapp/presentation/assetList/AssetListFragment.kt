@@ -30,10 +30,4 @@ class AssetListFragment : Fragment() {
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        binding.btnBack.setOnClickListener() {
-            findNavController().navigate(R.id.action_asset_list_to_home_fragment)
-        }
-    }
 }
