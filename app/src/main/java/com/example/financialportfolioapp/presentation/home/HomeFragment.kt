@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.example.financialportfolioapp.R
 import com.example.financialportfolioapp.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -27,14 +26,17 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnGoToPortfolio.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_portfolio_list_fragment)
+            val action = HomeFragmentDirections.actionHomeFragmentToPortfolioListFragment()
+            findNavController().navigate(action)
         }
 
         binding.btnGoToAssetList.setOnClickListener {
-            findNavController().navigate(R.id.action_home_fragment_to_asset_list)
+            val action = HomeFragmentDirections.actionHomeFragmentToAssetList()
+            findNavController().navigate(action)
         }
         binding.btnGoToSettings.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_settings_fragment)
+            val action = HomeFragmentDirections.actionHomeFragmentToSettingsFragment()
+            findNavController().navigate(action)
         }
     }
 
