@@ -20,4 +20,8 @@ class PortfolioListFragment : Fragment() {
         _binding = FragmentPortfolioListBinding.inflate(inflater, container, false)
         return binding.root
     }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }

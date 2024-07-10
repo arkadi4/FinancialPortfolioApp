@@ -1,7 +1,7 @@
-
 buildscript {
     apply from: "../code_quality/detekt.gradle"
     apply from: "../code_style/ktlint.gradle"
+    apply from: '../scripts/git_hook.gradle'
 }
 plugins {
     alias(libs.plugins.android.application)
@@ -44,8 +44,6 @@ android {
 }
 
 dependencies {
-    def nav_version = "2.7.7"
-
     implementation libs.androidx.fragment.ktx
     implementation libs.androidx.core.ktx
     implementation libs.androidx.appcompat
