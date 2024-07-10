@@ -4,7 +4,6 @@ task installGitHook(type: Copy) {
     fileMode 0775
 }
 
-//tasks.getByPath(':preBuild').dependsOn install
 tasks.configureEach {
     if (it.name == "prebuild") {
         tasks.dependsOn installGitHook
