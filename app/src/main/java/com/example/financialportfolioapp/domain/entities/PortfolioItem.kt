@@ -1,70 +1,62 @@
 package com.example.financialportfolioapp.domain.entities
 
-import java.util.Date
+import java.util.Calendar
 
-interface PortfolioCashInterface {
+interface PortfolioItemInterface : AssetInterface {
     var amount: Double
-    var priceHistory: MutableMap<Date, Double>
+    var price: Double
+    var currency: String
+    var dateOfLastPriceUpdate: Calendar
+    var priceHistory: MutableMap<Calendar, Double>
 }
 
-interface PortfolioValuablePaperInterface {
-    var amount: Int
-    var priceHistory: MutableMap<Date, Double>
-}
-
-data class Currency(
+data class Cash(
     override val id: Int,
     override val name: String,
-    override var date: Date,
-    override var price: Double,
     override var amount: Double,
-) : AssetInterface, PortfolioCashInterface {
-    override var priceHistory: MutableMap<Date, Double> = mutableMapOf(date to price)
+    override var price: Double,
+    override var currency: String,
+    override var dateOfLastPriceUpdate: Calendar
+) : PortfolioItemInterface {
+    override var priceHistory: MutableMap<Calendar, Double> =
+        mutableMapOf(dateOfLastPriceUpdate to price)
 }
 
-interface MetaInfo {
+data class Stock(
+    override val id: Int,
+    override val name: String,
+    override var amount: Double,
+    override var price: Double,
+    override var currency: String,
+    override var dateOfLastPriceUpdate: Calendar,
+) : PortfolioItemInterface {
+    override var priceHistory: MutableMap<Calendar, Double> =
+        mutableMapOf(dateOfLastPriceUpdate to price)
+}
+
+data class Bond(
+    override val id: Int,
+    override val name: String,
+    override var amount: Double,
+    override var price: Double,
+    override var currency: String,
+    override var dateOfLastPriceUpdate: Calendar,
+    var futurePrice: Double,
+    var yieldToMaturity: Double,
+) : PortfolioItemInterface {
+    override var priceHistory: MutableMap<Calendar, Double> =
+        mutableMapOf(dateOfLastPriceUpdate to price)
+}
+
+interface MetaInfoInterface {
     val country: String
     val economySector: String
 }
 
-data class Share(
-    override val id: Int,
-    override val name: String,
-    override var date: Date,
-    override var price: Double,
-    override var amount: Int,
-    override val country: String,
-    override val economySector: String,
-) : AssetInterface, PortfolioValuablePaperInterface, MetaInfo {
-    override var priceHistory: MutableMap<Date, Double> = mutableMapOf(date to price)
-}
-
-interface InterestBearingBondInterface {
-    var futurePrice: Double
-    var yieldToMaturity: Double
-}
-
-data class InterestBearingBond(
-    override val id: Int,
-    override val name: String,
-    override var date: Date,
-    override var price: Double,
-    override var amount: Int,
-    override val country: String,
-    override val economySector: String,
-    override var futurePrice: Double,
-    override var yieldToMaturity: Double,
-) : AssetInterface,
-    PortfolioValuablePaperInterface,
-    MetaInfo,
-    InterestBearingBondInterface {
-    override var priceHistory: MutableMap<Date, Double> = mutableMapOf(date to price)
-}
-
-interface ExchangeTradedFund : AssetInterface, MetaInfo {
+interface ExchangeTradedFundInterface : PortfolioItemInterface, MetaInfoInterface {
     val someExchangeTradedFundProperty: Any
 }
 
-interface IndexedBond : AssetInterface, MetaInfo {
+interface IndexedBondInterface : PortfolioItemInterface, MetaInfoInterface {
     val someIndexedBondProperty: Any
 }
