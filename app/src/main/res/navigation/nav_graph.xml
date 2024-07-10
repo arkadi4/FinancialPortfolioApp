@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/home_fragment">
+
+    <fragment
+        android:id="@+id/home_fragment"
+        android:name="com.example.financialportfolioapp.presentation.home.HomeFragment"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_portfolio_list_fragment"
+            app:destination="@id/portfolio_list_fragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_settings_fragment"
+            app:destination="@id/settings_fragment" />
+
+        <action
+            android:id="@+id/action_home_fragment_to_asset_list"
+            app:destination="@id/asset_list" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/portfolio_list_fragment"
+        android:name="com.example.financialportfolioapp.presentation.partfolio.PortfolioListFragment"
+        android:label="Portfolio"
+        tools:layout="@layout/fragment_portfolio_list" />
+
+    <fragment
+        android:id="@+id/settings_fragment"
+        android:name="com.example.financialportfolioapp.presentation.settings.SettingsFragment"
+        android:label="Settings"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/asset_list"
+        android:name="com.example.financialportfolioapp.presentation.assetList.AssetListFragment"
+        android:label="Asset list"
+        tools:layout="@layout/fragment_asset_list">
+        <action
+            android:id="@+id/action_asset_list_to_home_fragment"
+            app:destination="@id/home_fragment" />
+    </fragment>
+
+
+</navigation>
