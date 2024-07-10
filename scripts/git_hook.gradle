@@ -10,5 +10,4 @@ tasks.configureEach {task ->
     if (task.name == 'preBuild') {
         task.dependsOn installGitHook
     }
-
 }
