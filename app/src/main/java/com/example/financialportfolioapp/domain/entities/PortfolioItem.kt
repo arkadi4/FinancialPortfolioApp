@@ -28,7 +28,7 @@ data class Stock(
     override var amount: Double,
     override var price: Double,
     override var currency: String,
-    override var dateOfLastPriceUpdate: Calendar,
+    override var dateOfLastPriceUpdate: Calendar
 ) : PortfolioItemInterface {
     override var priceHistory: MutableMap<Calendar, Double> =
         mutableMapOf(dateOfLastPriceUpdate to price)
@@ -42,7 +42,7 @@ data class Bond(
     override var currency: String,
     override var dateOfLastPriceUpdate: Calendar,
     var futurePrice: Double,
-    var yieldToMaturity: Double,
+    var yieldToMaturity: Double
 ) : PortfolioItemInterface {
     override var priceHistory: MutableMap<Calendar, Double> =
         mutableMapOf(dateOfLastPriceUpdate to price)

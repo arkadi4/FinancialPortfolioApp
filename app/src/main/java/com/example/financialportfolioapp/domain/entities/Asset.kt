@@ -7,5 +7,5 @@ interface AssetInterface {
 
 data class Asset(
     override val id: Int,
-    override val name: String,
+    override val name: String
 ) : AssetInterface
