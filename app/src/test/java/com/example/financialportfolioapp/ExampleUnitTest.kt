@@ -1,6 +1,6 @@
 package com.example.financialportfolioapp
 
-import junit.framework.Assert.assertEquals
+import org.junit.Assert.assertEquals
 import org.junit.Test
 
 class ExampleUnitTest {
