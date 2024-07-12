@@ -2,31 +2,13 @@ package com.example.financialportfolioapp.domain.entities
 
 import java.util.Calendar
 
-const val BynToByn = 1.0
-const val BynToUSD = 0.32
-const val UsdToByn = 32.0
-const val UsdToUsd = 1.0
-
 enum class AppCurrencies(
-    val currencyName: String,
-    var exchangeRatio: MutableMap<String, Double>
+    val currencyName: String
 ) {
-    BYN(
-        "BYN",
-        mutableMapOf(
-            "BYN" to BynToByn,
-            "USD" to BynToUSD
-        )
-    ),
-    USD(
-        "USD",
-        mutableMapOf(
-            "BYN" to UsdToByn,
-            "USD" to UsdToUsd
-        )
-    ),
-//    RUB,
-//    CNY
+    BYN("BYN"),
+    USD("USD"),
+    RUB("RUB"),
+    CNY("CNY")
 }
 
 class Price(
@@ -36,17 +18,6 @@ class Price(
 ) {
     var priceString: String = "$priceValue ${priceCurrency.currencyName}"
     var history: MutableMap<Calendar, String> = mutableMapOf(dateOfLastPriceUpdate to priceString)
-
-    fun changeToAnotherCurrency(anotherCurrency: AppCurrencies) {
-        priceValue = priceValue * anotherCurrency.exchangeRatio.get(anotherCurrency.currencyName)!!
-        priceCurrency = anotherCurrency
-    }
-
-    fun updatePrice(newDateOfLastPriceUpdate: Calendar, newPriceValue: Double) {
-        dateOfLastPriceUpdate = newDateOfLastPriceUpdate
-        priceString = "$newPriceValue ${priceCurrency.currencyName}"
-        history.put(newDateOfLastPriceUpdate, priceString)
-    }
 }
 
 interface PortfolioItemInterface : AssetInterface {
