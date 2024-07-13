@@ -1,4 +1,4 @@
-package com.example.financialportfolioapp.presentation.rv
+package com.example.financialportfolioapp.presentation.assetList.rv
 
 import androidx.recyclerview.widget.DiffUtil
 import com.example.financialportfolioapp.domain.entities.Asset

@@ -1,4 +1,4 @@
-package com.example.financialportfolioapp.presentation.rv
+package com.example.financialportfolioapp.presentation.assetList.rv
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

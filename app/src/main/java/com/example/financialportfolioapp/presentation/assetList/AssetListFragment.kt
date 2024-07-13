@@ -7,8 +7,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.financialportfolioapp.databinding.FragmentAssetListBinding
-import com.example.financialportfolioapp.presentation.rv.AssetListAdapter
+import com.example.financialportfolioapp.presentation.assetList.rv.AssetListAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class AssetListFragment : Fragment() {
 
     private var _binding: FragmentAssetListBinding? = null
