@@ -4,8 +4,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import com.example.financialportfolioapp.databinding.ActivityMainBinding
 import androidx.navigation.ui.setupActionBarWithNavController
+import com.example.financialportfolioapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding

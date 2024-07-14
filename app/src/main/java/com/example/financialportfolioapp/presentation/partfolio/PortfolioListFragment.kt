@@ -1,10 +1,10 @@
 package com.example.financialportfolioapp.presentation.partfolio
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.example.financialportfolioapp.databinding.FragmentPortfolioListBinding
 
 class PortfolioListFragment : Fragment() {
