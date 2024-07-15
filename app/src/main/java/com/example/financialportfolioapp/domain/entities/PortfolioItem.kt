@@ -16,8 +16,9 @@ class Price(
     var priceCurrency: AppCurrencies,
     var dateOfLastPriceUpdate: Calendar
 ) {
-    var priceString: String = "$priceValue ${priceCurrency.currencyName}"
-    var history: MutableMap<Calendar, String> = mutableMapOf(dateOfLastPriceUpdate to priceString)
+    fun getPriceString(): String = "$priceValue ${priceCurrency.currencyName}"
+    val history: MutableMap<Calendar, String> =
+        mutableMapOf(dateOfLastPriceUpdate to getPriceString())
 }
 
 interface PortfolioItemInterface : AssetInterface {
@@ -54,9 +55,9 @@ interface MetaInfoInterface {
 }
 
 interface ExchangeTradedFundInterface : PortfolioItemInterface, MetaInfoInterface {
-    val someExchangeTradedFundProperty: Any
+    val someExchangeTradedFundProperty: Double
 }
 
 interface IndexedBondInterface : PortfolioItemInterface, MetaInfoInterface {
-    val someIndexedBondProperty: Any
+    val someIndexedBondProperty: Double
 }
