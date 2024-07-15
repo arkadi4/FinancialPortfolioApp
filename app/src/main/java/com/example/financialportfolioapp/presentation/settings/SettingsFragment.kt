@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.financialportfolioapp.databinding.FragmentSettingsBinding
+import com.example.financialportfolioapp.presentation.stringselector.ModalDialogFragment
 
 class SettingsFragment : Fragment() {
     private var _binding: FragmentSettingsBinding? = null
@@ -19,12 +20,17 @@ class SettingsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentSettingsBinding.inflate(inflater, container, false)
+
         myViewModel = ViewModelProvider(this).get(SettingsScreenViewmodel::class.java)
         myViewModel.uiState.observe(viewLifecycleOwner) {
             binding.defaultCurrencyValue.text = it.defaultCurrencyValue
         }
-        binding.stringSelectorButton.setOnClickListener {
-            myViewModel.setDefaultCurrency("USD")
+        binding.idddddddddddd.setOnClickListener {
+            val modal = ModalDialogFragment(myViewModel)
+            println("modal $modal")
+            childFragmentManager.let {
+                modal.show(it, ModalDialogFragment.TAG)
+            }
         }
         return binding.root
     }

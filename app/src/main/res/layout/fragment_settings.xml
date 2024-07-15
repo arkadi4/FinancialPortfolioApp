@@ -20,10 +20,14 @@
         android:paddingEnd="16dp"
         tools:text="BYN"/>
     <Button
-        android:id="@+id/string_selector_button"
+        android:id="@+id/idddddddddddd"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.05"
-        android:text="@string/string_selector_button_text"/>
+        android:layout_height="wrap_content"/>
+
+<!--    <fragment-->
+<!--        android:id="@+id/string_selector_fragment"-->
+<!--        android:name="com.example.financialportfolioapp.presentation.stringselector.StringSelectorFragment"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"/>-->
 
 </LinearLayout>
