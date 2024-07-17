@@ -2,7 +2,6 @@ package com.example.financialportfolioapp.data
 
 import com.example.financialportfolioapp.domain.entities.AppCurrencies
 import com.example.financialportfolioapp.domain.entities.Asset
-import com.example.financialportfolioapp.domain.entities.AssetInterface
 import com.example.financialportfolioapp.domain.entities.Bond
 import com.example.financialportfolioapp.domain.entities.Cash
 import com.example.financialportfolioapp.domain.entities.PortfolioItemInterface
@@ -11,7 +10,7 @@ import com.example.financialportfolioapp.domain.entities.Stock
 import java.util.Calendar
 
 object DataSample {
-    val assetList: MutableList<AssetInterface> = mutableListOf(
+    val assetList: MutableList<Asset> = mutableListOf(
         Asset(1, "USD"),
         Asset(2, "BYN"),
         Asset(3, "Minsk Tractors"),

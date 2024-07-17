@@ -21,7 +21,9 @@ class Price(
         mutableMapOf(dateOfLastPriceUpdate to getPriceString())
 }
 
-interface PortfolioItemInterface : AssetInterface {
+interface PortfolioItemInterface {
+    val id: Int
+    val name: String
     val amount: Double
     val price: Price
 }
