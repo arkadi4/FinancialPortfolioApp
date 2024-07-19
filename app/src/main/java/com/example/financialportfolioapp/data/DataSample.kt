@@ -10,7 +10,8 @@ import com.example.financialportfolioapp.domain.entities.Stock
 import java.util.Calendar
 
 object DataSample {
-    var assetList: MutableList<Asset> = mutableListOf(
+
+    val assetList: MutableList<Asset> = mutableListOf(
         Asset(1, "USD"),
         Asset(2, "BYN"),
         Asset(3, "Minsk Tractors"),
@@ -19,7 +20,7 @@ object DataSample {
         Asset(6, "Columbia Pictures")
     )
 
-    var portfolioItemsList: MutableList<PortfolioItemInterface> = mutableListOf(
+    val portfolioItemsList: MutableList<PortfolioItemInterface> = mutableListOf(
         Cash(
             1,
             "USD",
