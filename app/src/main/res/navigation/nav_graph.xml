@@ -39,7 +39,20 @@
         <action
             android:id="@+id/action_asset_list_to_home_fragment"
             app:destination="@id/home_fragment" />
+        <action
+            android:id="@+id/action_asset_list_to_assetDetailsFragment"
+            app:destination="@id/assetDetailsFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/assetDetailsFragment"
+        android:name="com.example.financialportfolioapp.presentation.assetDetails.AssetDetailsFragment"
+        android:label="Details"
+        tools:layout="@layout/fragment_asset_details">
+
+    <argument
+        android:name="assetId"
+        app:argType="integer" />
+</fragment>
 
 
 </navigation>

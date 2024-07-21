@@ -1,14 +1,121 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     tools:context=".presentation.assetDetails.AssetDetailsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <!-- Asset Name Label -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Asset Name:"
+        android:textAppearance="?attr/textAppearanceSubtitle1"
+        app:layout_constraintEnd_toStartOf="@+id/name_value"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <!-- Asset Name Value -->
+    <TextView
+        android:id="@+id/name_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Bitcoin"
+        android:textAppearance="?attr/textAppearanceSubtitle1"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/name"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/amount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Quantity:"
+        android:textAppearance="?attr/textAppearanceSubtitle1"
+        app:layout_constraintEnd_toStartOf="@+id/amount_value"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/name"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/amount_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="1.5"
+        android:textAppearance="?attr/textAppearanceSubtitle1"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/amount"
+        app:layout_constraintTop_toBottomOf="@id/name_value" />
+
+    <!-- Asset Price Label -->
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Price:"
+        android:textAppearance="?attr/textAppearanceSubtitle1"
+        app:layout_constraintEnd_toStartOf="@+id/price_value"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/amount" />
+
+    <!-- Asset Price Value -->
+    <TextView
+        android:id="@+id/price_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="$45000"
+        android:textAppearance="?attr/textAppearanceSubtitle1"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/price"
+        app:layout_constraintTop_toBottomOf="@id/amount_value" />
+
+        <TextView
+            android:id="@+id/currency"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
+            app:layout_constraintEnd_toStartOf="@id/currency_value"
+            android:text="Currency"
+            app:layout_constraintTop_toBottomOf="@id/price"/>
+    <TextView
+        android:id="@+id/currency_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textAppearance="?attr/textAppearanceSubtitle1"
+        app:layout_constraintStart_toEndOf="@id/currency"
+        android:textStyle="bold"
+        android:text="USD"
+        app:layout_constraintTop_toBottomOf="@id/price_value"/>
+
+    <TextView
+        android:id="@+id/last_price_update"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textAppearance="?attr/textAppearanceSubtitle1"
+        app:layout_constraintEnd_toStartOf="@id/last_price_update_value"
+        android:text="LastPriceUpdate"
+        app:layout_constraintTop_toBottomOf="@id/currency"/>
+    <TextView
+        android:id="@+id/last_price_update_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textAppearance="?attr/textAppearanceSubtitle1"
+        app:layout_constraintStart_toEndOf="@id/last_price_update"
+        android:textStyle="bold"
+        android:text="date"
+        app:layout_constraintTop_toBottomOf="@id/currency_value"/>
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
