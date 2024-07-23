@@ -1,30 +1,29 @@
 package com.example.financialportfolioapp.presentation.settings
 
-import android.app.Application
-import android.content.Context
-import android.content.SharedPreferences
-import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import com.example.financialportfolioapp.domain.repository.SettingsStorageRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
 data class SettingsState(
     val defaultCurrencyValue: String
 )
 
-class SettingsScreenViewmodel(application: Application) : AndroidViewModel(application) {
+@HiltViewModel
+class SettingsScreenViewmodel @Inject constructor(
+    val settingsStorageRepository: SettingsStorageRepository
+) : ViewModel() {
     private val _uiState = MutableLiveData<SettingsState>()
-    val uiState: MutableLiveData<SettingsState> get() = _uiState
-    private val sharedPrefs: SharedPreferences =
-        application.getSharedPreferences("preference_key", Context.MODE_PRIVATE)
-    private val defaultCurrencyInSharedPrefs: String = sharedPrefs
-        .getString("default Currency", "BYN")
-        ?: "BYN"
+    val uiState: LiveData<SettingsState> get() = _uiState
 
     init {
-        _uiState.value = SettingsState(defaultCurrencyInSharedPrefs)
+        _uiState.value = SettingsState(settingsStorageRepository.getSettings())
     }
 
     fun setDefaultCurrency(newCurrency: String) {
         _uiState.postValue(_uiState.value!!.copy(defaultCurrencyValue = newCurrency))
-        sharedPrefs.edit()?.putString("default Currency", newCurrency)?.apply()
+        settingsStorageRepository.setSettings(newCurrency)
     }
 }
