@@ -33,18 +33,20 @@ class AssetDetailsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val assetId = args.assetId
 
-        assetDetailViewModel.loadItem(assetId).observe(viewLifecycleOwner) { item ->
+        assetDetailViewModel.loadItem(assetId)
+        assetDetailViewModel.item.observe(viewLifecycleOwner) { item ->
 
-            val calendar = item.price.dateOfLastPriceUpdate
+            val calendar = item?.price?.dateOfLastPriceUpdate
             val dateFormat = SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.getDefault())
-            val dateString = dateFormat.format(calendar.time)
-            binding.nameValue.text = item.name
-            binding.amountValue.text = item.amount.toString()
-            binding.priceValue.text = item.price.priceValue.toString()
-            binding.currencyValue.text = item.price.priceCurrency.toString()
+            val dateString = calendar?.time?.let { dateFormat.format(it) }
+            binding.nameValue.text = item?.name
+            binding.amountValue.text = item?.amount.toString()
+            binding.priceValue.text = item?.price?.priceValue.toString()
+            binding.currencyValue.text = item?.price?.priceCurrency.toString()
             binding.lastPriceUpdateValue.text = dateString
         }
     }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

@@ -9,7 +9,7 @@ class PortfolioItemRepositoryImpl @Inject constructor() : PortfolioItemRepositor
         return DataSample.portfolioItemsList
     }
 
-    override fun getItemById(assetId: Int): PortfolioItemInterface {
-        return getItems().first { it.id == assetId }
+    override fun getItemById(assetId: Int): PortfolioItemInterface? {
+        return getItems().firstOrNull { it.id == assetId }
     }
 }

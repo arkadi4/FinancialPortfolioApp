@@ -29,6 +29,7 @@ class AssetListViewModel @Inject constructor(
     private fun loadSampleData(): List<Asset> {
         return assetRepository.getAssets()
     }
+
     fun assetExists(assetId: Int): Boolean {
         return portfolioItemRepository.getItems().any { it.id == assetId }
     }

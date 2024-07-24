@@ -10,7 +10,7 @@
         android:id="@+id/btnGoToPortfolio"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Portfolio List"
+        android:text="@string/portfolio_list"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_massage" />
@@ -20,7 +20,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:text="Settings"
+        android:text="@string/settings"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnGoToPortfolio" />
@@ -29,7 +29,7 @@
         android:id="@+id/btnGoToAssetList"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Asset list"
+        android:text="@string/asset_list"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnGoToSettings" />
@@ -42,7 +42,7 @@
         android:layout_marginBottom="32dp"
         android:gravity="center"
         android:padding="10dp"
-        android:text="This is your partfolio"
+        android:text="@string/this_is_your_partfolio"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

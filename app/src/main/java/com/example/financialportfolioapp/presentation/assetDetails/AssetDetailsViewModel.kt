@@ -13,12 +13,11 @@ class AssetDetailsViewModel @Inject constructor(
     private val portfolioItemRepository: PortfolioItemRepository
 ) : ViewModel() {
 
-    private val _item = MutableLiveData<PortfolioItemInterface>()
-    val item: LiveData<PortfolioItemInterface> get() = _item
+    private val _item = MutableLiveData<PortfolioItemInterface?>()
+    val item: LiveData<PortfolioItemInterface?> get() = _item
 
-    fun loadItem(assetId: Int): LiveData<PortfolioItemInterface> {
+    fun loadItem(assetId: Int) {
         val item = portfolioItemRepository.getItemById(assetId)
         _item.value = item
-        return _item
     }
 }

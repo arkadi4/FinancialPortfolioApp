@@ -11,7 +11,7 @@
         android:id="@+id/name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Asset Name:"
+        android:text="@string/asset_name_value"
         android:textAppearance="?attr/textAppearanceSubtitle1"
         app:layout_constraintEnd_toStartOf="@+id/name_value"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,7 +22,7 @@
         android:id="@+id/name_value"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Bitcoin"
+        android:text="@string/bitcoin"
         android:textAppearance="?attr/textAppearanceSubtitle1"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,7 +33,7 @@
         android:id="@+id/amount"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Quantity:"
+        android:text="@string/quantity"
         android:textAppearance="?attr/textAppearanceSubtitle1"
         app:layout_constraintEnd_toStartOf="@+id/amount_value"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,7 +44,7 @@
         android:id="@+id/amount_value"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="1.5"
+        android:text="@string/_1_5"
         android:textAppearance="?attr/textAppearanceSubtitle1"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -56,7 +56,7 @@
         android:id="@+id/price"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Price:"
+        android:text="@string/price"
         android:textAppearance="?attr/textAppearanceSubtitle1"
         app:layout_constraintEnd_toStartOf="@+id/price_value"
         app:layout_constraintStart_toStartOf="parent"
@@ -67,7 +67,7 @@
         android:id="@+id/price_value"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="$45000"
+        android:text="@string/_45000"
         android:textAppearance="?attr/textAppearanceSubtitle1"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -81,7 +81,7 @@
             app:layout_constraintStart_toStartOf="parent"
             android:textAppearance="?attr/textAppearanceSubtitle1"
             app:layout_constraintEnd_toStartOf="@id/currency_value"
-            android:text="Currency"
+            android:text="@string/currency"
             app:layout_constraintTop_toBottomOf="@id/price"/>
     <TextView
         android:id="@+id/currency_value"
@@ -91,7 +91,7 @@
         android:textAppearance="?attr/textAppearanceSubtitle1"
         app:layout_constraintStart_toEndOf="@id/currency"
         android:textStyle="bold"
-        android:text="USD"
+        android:text="@string/usd"
         app:layout_constraintTop_toBottomOf="@id/price_value"/>
 
     <TextView
@@ -101,7 +101,7 @@
         app:layout_constraintStart_toStartOf="parent"
         android:textAppearance="?attr/textAppearanceSubtitle1"
         app:layout_constraintEnd_toStartOf="@id/last_price_update_value"
-        android:text="LastPriceUpdate"
+        android:text="@string/lastpriceupdate"
         app:layout_constraintTop_toBottomOf="@id/currency"/>
     <TextView
         android:id="@+id/last_price_update_value"
@@ -111,7 +111,7 @@
         android:textAppearance="?attr/textAppearanceSubtitle1"
         app:layout_constraintStart_toEndOf="@id/last_price_update"
         android:textStyle="bold"
-        android:text="date"
+        android:text="@string/date"
         app:layout_constraintTop_toBottomOf="@id/currency_value"/>
 
 
