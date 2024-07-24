@@ -3,4 +3,6 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="asset_name">Asset Name</string>
+    <string name="settings_fragment_text">Default currency</string>
+    <string name="string_selector_button_text">change</string>
 </resources>

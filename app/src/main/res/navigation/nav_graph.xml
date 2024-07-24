@@ -39,7 +39,9 @@
         <action
             android:id="@+id/action_asset_list_to_home_fragment"
             app:destination="@id/home_fragment" />
+
     </fragment>
+
 
 
 </navigation>
