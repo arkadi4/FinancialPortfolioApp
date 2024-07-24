@@ -23,7 +23,7 @@ class SettingsScreenViewmodel @Inject constructor(
     }
 
     fun setDefaultCurrency(newCurrency: String) {
-        _uiState.postValue(_uiState.value!!.copy(defaultCurrencyValue = newCurrency))
+        _uiState.value = _uiState.value!!.copy(defaultCurrencyValue = newCurrency)
         settingsStorageRepository.setSettings(newCurrency)
     }
 }
