@@ -15,7 +15,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-class SelectCurrencyDialogFragment1 : BottomSheetDialogFragment() {
+class SelectCurrencyDialogFragment : BottomSheetDialogFragment() {
     private var _binding: FragmentBottomSheetListBinding? = null
     private val binding get() = _binding!!
     private val currenciesList = AppCurrencies.entries.toTypedArray()

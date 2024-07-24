@@ -13,7 +13,7 @@ data class SettingsState(
 
 @HiltViewModel
 class SettingsScreenViewmodel @Inject constructor(
-    val settingsStorageRepository: SettingsStorageRepository
+    private val settingsStorageRepository: SettingsStorageRepository
 ) : ViewModel() {
     private val _uiState = MutableLiveData<SettingsState>()
     val uiState: LiveData<SettingsState> get() = _uiState
