@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.financialportfolioapp.databinding.FragmentSettingsBinding
-import com.example.financialportfolioapp.presentation.stringselector.SelectCurrencyDialogFragment
+import com.example.financialportfolioapp.presentation.settings.stringselector.SelectCurrencyDialogFragment1
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -31,8 +31,8 @@ class SettingsFragment : Fragment() {
             binding.defaultCurrencyValue.text = it.defaultCurrencyValue
         }
         binding.selectButton.setOnClickListener {
-            SelectCurrencyDialogFragment().show(
-                childFragmentManager, SelectCurrencyDialogFragment.TAG
+            SelectCurrencyDialogFragment1().show(
+                childFragmentManager, SelectCurrencyDialogFragment1.TAG
             )
         }
     }
