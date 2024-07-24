@@ -1,4 +1,3 @@
-
 package com.example.financialportfolioapp.presentation.home
 
 import android.os.Bundle
