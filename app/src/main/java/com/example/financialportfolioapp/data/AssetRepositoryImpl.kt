@@ -8,4 +8,8 @@ class AssetRepositoryImpl @Inject constructor() : AssetRepository {
     override fun getAssets(): List<Asset> {
         return DataSample.assetList
     }
+
+    override fun getAssetById(assetId: Int): Asset? {
+        return getAssets().firstOrNull { it.id == assetId }
+    }
 }

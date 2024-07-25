@@ -38,7 +38,6 @@ data class Cash(
 data class Stock(
     override val id: Int,
     override val name: String,
-
     override val amount: Double,
     override val price: Price
 ) : PortfolioItemInterface
