@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.example.financialportfolioapp.databinding.FragmentAssetDetailsBinding
 import com.example.financialportfolioapp.presentation.utils.DateTimeUtils
+import com.example.financialportfolioapp.presentation.utils.DateTimeUtils.dateTimeFormatter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -42,7 +43,7 @@ class AssetDetailsFragment : Fragment() {
                 priceValue.text = item.price.priceValue.toString()
                 currencyValue.text = item.price.priceCurrency.toString()
                 lastPriceUpdateValue.text = item.price.dateOfLastPriceUpdate.let {
-                    DateTimeUtils.formatCalendar(it)
+                    DateTimeUtils.formatCalendar(it, dateTimeFormatter)
                 }
             }
         }

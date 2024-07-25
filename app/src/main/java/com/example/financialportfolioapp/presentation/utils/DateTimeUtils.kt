@@ -7,11 +7,10 @@ import java.time.format.DateTimeParseException
 import java.util.Calendar
 
 object DateTimeUtils {
-    private val dateTimeFormatter: DateTimeFormatter =
+    val dateTimeFormatter: DateTimeFormatter =
         DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")
 
-    private val currentDateTime = LocalDateTime.now()
-    fun formatDateTime(dateTime: LocalDateTime): String {
+    fun formatDateTime(dateTime: LocalDateTime, dateTimeFormatter: DateTimeFormatter): String {
         return dateTime.format(dateTimeFormatter)
     }
 
@@ -23,15 +22,11 @@ object DateTimeUtils {
         }
     }
 
-    fun getCurrentDateTime(): LocalDateTime {
-        return currentDateTime
-    }
-
-    fun calendarToLocalDateTime(calendar: Calendar): LocalDateTime {
+    private fun calendarToLocalDateTime(calendar: Calendar): LocalDateTime {
         return calendar.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime()
     }
 
-    fun formatCalendar(calendar: Calendar): String {
-        return formatDateTime(calendarToLocalDateTime(calendar))
+    fun formatCalendar(calendar: Calendar, dateTimeFormatter: DateTimeFormatter): String {
+        return formatDateTime(calendarToLocalDateTime(calendar), dateTimeFormatter)
     }
 }
