@@ -8,9 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.example.financialportfolioapp.databinding.FragmentAssetDetailsBinding
+import com.example.financialportfolioapp.presentation.utils.DateTimeUtils
 import dagger.hilt.android.AndroidEntryPoint
-import java.text.SimpleDateFormat
-import java.util.Locale
 
 @AndroidEntryPoint
 class AssetDetailsFragment : Fragment() {
@@ -34,16 +33,18 @@ class AssetDetailsFragment : Fragment() {
         val assetId = args.assetId
 
         assetDetailViewModel.loadItem(assetId)
-        assetDetailViewModel.item.observe(viewLifecycleOwner) { item ->
+        assetDetailViewModel.item.observe(viewLifecycleOwner) {
+            val item = it ?: return@observe
 
-            val calendar = item?.price?.dateOfLastPriceUpdate
-            val dateFormat = SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.getDefault())
-            val dateString = calendar?.time?.let { dateFormat.format(it) }
-            binding.nameValue.text = item?.name
-            binding.amountValue.text = item?.amount.toString()
-            binding.priceValue.text = item?.price?.priceValue.toString()
-            binding.currencyValue.text = item?.price?.priceCurrency.toString()
-            binding.lastPriceUpdateValue.text = dateString
+            binding.apply {
+                nameValue.text = item.name
+                amountValue.text = item.amount.toString()
+                priceValue.text = item.price.priceValue.toString()
+                currencyValue.text = item.price.priceCurrency.toString()
+                lastPriceUpdateValue.text = item.price.dateOfLastPriceUpdate.let {
+                    DateTimeUtils.formatCalendar(it)
+                }
+            }
         }
     }
 

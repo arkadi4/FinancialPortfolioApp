@@ -16,10 +16,9 @@ class AssetListViewModel @Inject constructor(
     private val portfolioItemRepository: PortfolioItemRepository
 ) : ViewModel() {
     private val _assets = MutableLiveData<List<Asset>>()
-
-    private val _items = MutableLiveData<List<PortfolioItemInterface>>()
     val assets: LiveData<List<Asset>> get() = _assets
 
+    private val _items = MutableLiveData<List<PortfolioItemInterface>>()
     val items: LiveData<List<PortfolioItemInterface>> get() = _items
 
     init {
