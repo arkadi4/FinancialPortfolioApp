@@ -18,4 +18,6 @@
     <string name="this_is_your_partfolio">This is your partfolio</string>
     <string name="portfolio_list">Portfolio List</string>
     <string name="your_partfolios">Your partfolios</string>
+    <string name="settings_fragment_text">Default currency</string>
+    <string name="string_selector_button_text">change</string>
 </resources>
