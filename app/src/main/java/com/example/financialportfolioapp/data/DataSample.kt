@@ -48,4 +48,14 @@ object DataSample {
             50.0
         )
     )
+
+    fun deleteItem(id: Int) {
+        val item = portfolioItemsList.firstOrNull { it.id == id }
+        portfolioItemsList.remove(item)
+    }
+
+    fun deleteAsset(id: Int) {
+        val asset = assetList.firstOrNull { it.id == id }
+        assetList.remove(asset)
+    }
 }

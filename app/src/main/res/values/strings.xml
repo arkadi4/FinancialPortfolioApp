@@ -20,4 +20,5 @@
     <string name="your_partfolios">Your partfolios</string>
     <string name="settings_fragment_text">Default currency</string>
     <string name="string_selector_button_text">change</string>
+    <string name="delete">Delete</string>
 </resources>

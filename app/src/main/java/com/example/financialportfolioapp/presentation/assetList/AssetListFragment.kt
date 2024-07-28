@@ -13,7 +13,6 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class AssetListFragment : Fragment() {
-
     private var _binding: FragmentAssetListBinding? = null
     private val assetListViewModel: AssetListViewModel by viewModels()
     private val binding get() = _binding!!
@@ -35,7 +34,10 @@ class AssetListFragment : Fragment() {
             val action = AssetListFragmentDirections.actionAssetListToAssetDetailsFragment(asset.id)
             findNavController().navigate(action)
         }
-
+        adapter.onDeleteClick = { asset ->
+            val assetId = asset.id
+            assetListViewModel.deleteItem(asset)
+        }
         binding.rv.adapter = adapter
         assetListViewModel.assets.observe(viewLifecycleOwner) { assets ->
             adapter.submit(assets)

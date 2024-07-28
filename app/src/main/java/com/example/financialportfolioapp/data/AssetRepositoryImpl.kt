@@ -12,4 +12,8 @@ class AssetRepositoryImpl @Inject constructor() : AssetRepository {
     override fun getAssetById(assetId: Int): Asset? {
         return getAssets().firstOrNull { it.id == assetId }
     }
+
+    override fun deleteAssetById(assetId: Int) {
+        DataSample.deleteAsset(assetId)
+    }
 }
