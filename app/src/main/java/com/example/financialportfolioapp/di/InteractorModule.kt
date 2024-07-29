@@ -1,6 +1,6 @@
 package com.example.financialportfolioapp.di
 
-import com.example.financialportfolioapp.domain.interactor.Interactor
+import com.example.financialportfolioapp.domain.interactor.AssetListInteractor
 import com.example.financialportfolioapp.domain.repository.AssetRepository
 import com.example.financialportfolioapp.domain.repository.PortfolioItemRepository
 import dagger.Module
@@ -16,7 +16,7 @@ object InteractorModule {
     fun provideInteractor(
         assetRepository: AssetRepository,
         portfolioItemRepository: PortfolioItemRepository
-    ): Interactor {
-        return Interactor(assetRepository, portfolioItemRepository)
+    ): AssetListInteractor {
+        return AssetListInteractor(assetRepository, portfolioItemRepository)
     }
 }

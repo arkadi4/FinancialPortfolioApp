@@ -35,7 +35,6 @@ class AssetListFragment : Fragment() {
             findNavController().navigate(action)
         }
         adapter.onDeleteClick = { asset ->
-            val assetId = asset.id
             assetListViewModel.deleteItem(asset)
         }
         binding.rv.adapter = adapter
