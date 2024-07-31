@@ -1,7 +1,6 @@
 package com.example.financialportfolioapp.domain.entities
 
 import com.example.financialportfolioapp.presentation.portfoliolist.rv.TypeFactory
-//import com.example.financialportfolioapp.presentation.portfolio.rv.TypesFactory
 import java.util.Calendar
 
 enum class AppCurrencies(
@@ -48,7 +47,7 @@ data class Cash(
     override val name: String,
     override val amount: Double,
     override val price: Price
-) : PortfolioItem (id, name, amount, price) {
+) : PortfolioItem(id, name, amount, price) {
     override fun type(typeFactory: TypeFactory): Int = typeFactory.type(this)
 }
 
@@ -58,7 +57,7 @@ data class Stock(
     override val amount: Double,
     override val price: Price,
     val dividends: Double
-) : PortfolioItem (id, name, amount, price) {
+) : PortfolioItem(id, name, amount, price) {
     override fun type(typeFactory: TypeFactory): Int = typeFactory.type(this)
 }
 
@@ -69,7 +68,7 @@ data class Bond(
     override val price: Price,
     val futurePrice: Double,
     val yieldToMaturity: Double
-) : PortfolioItem (id, name, amount, price) {
+) : PortfolioItem(id, name, amount, price) {
     override fun type(typeFactory: TypeFactory): Int = typeFactory.type(this)
 }
 

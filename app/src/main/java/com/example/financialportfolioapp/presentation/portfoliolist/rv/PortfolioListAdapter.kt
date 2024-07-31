@@ -17,12 +17,18 @@ class PortfolioListAdapter(
         return items[position].type(TypeFactoryImpl())
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BasePortfolioListViewHolder<PortfolioItem> {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): BasePortfolioListViewHolder<PortfolioItem> {
         val view = LayoutInflater.from(parent.context).inflate(viewType, parent, false)
         return typeFactory.holder(viewType, view) as BasePortfolioListViewHolder<PortfolioItem>
     }
 
-    override fun onBindViewHolder(holder: BasePortfolioListViewHolder<PortfolioItem>, position: Int) {
+    override fun onBindViewHolder(
+        holder: BasePortfolioListViewHolder<PortfolioItem>,
+        position: Int
+    ) {
         holder.bind(items[position], onClick)
     }
 

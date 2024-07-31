@@ -11,11 +11,11 @@ import com.example.financialportfolioapp.domain.entities.Stock
 
 abstract class BasePortfolioListViewHolder<T>(
     view: View
-): RecyclerView.ViewHolder(view) {
+) : RecyclerView.ViewHolder(view) {
     abstract fun bind(item: T, onClick: (T) -> Unit)
 }
 
-class CashHolder(view: View): BasePortfolioListViewHolder<Cash>(view) {
+class CashHolder(view: View) : BasePortfolioListViewHolder<Cash>(view) {
     private val binding = ItemCashPortfolioListBinding.bind(view)
     override fun bind(item: Cash, onClick: (Cash) -> Unit) {
         binding.apply {
@@ -26,7 +26,7 @@ class CashHolder(view: View): BasePortfolioListViewHolder<Cash>(view) {
     }
 }
 
-class StockHolder(view: View): BasePortfolioListViewHolder<Stock>(view) {
+class StockHolder(view: View) : BasePortfolioListViewHolder<Stock>(view) {
     private val binding = ItemStockPortfolioListBinding.bind(view)
     override fun bind(item: Stock, onClick: (Stock) -> Unit) {
         binding.apply {
@@ -37,7 +37,7 @@ class StockHolder(view: View): BasePortfolioListViewHolder<Stock>(view) {
     }
 }
 
-class BondHolder(view: View): BasePortfolioListViewHolder<Bond>(view) {
+class BondHolder(view: View) : BasePortfolioListViewHolder<Bond>(view) {
     private val binding = ItemBondPortfolioListBinding.bind(view)
     override fun bind(item: Bond, onClick: (Bond) -> Unit) {
         binding.apply {

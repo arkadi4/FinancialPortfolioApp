@@ -12,29 +12,11 @@ class TypeFactoryImpl : TypeFactory {
     override fun type(bond: Bond) = R.layout.item_bond_portfolio_list
 
     override fun holder(type: Int, view: View): BasePortfolioListViewHolder<*> {
-        return when(type) {
+        return when (type) {
             R.layout.item_cash_portfolio_list -> CashHolder(view)
             R.layout.item_stock_portfolio_list -> StockHolder(view)
             R.layout.item_bond_portfolio_list -> BondHolder(view)
-            else -> throw RuntimeException("Illegal view type")
+            else -> CashHolder(view)
         }
     }
 }
-
-
-
-
-//class TypesFactoryImpl : TypesFactory {
-//
-//    override fun type(duck: Duck) = R.layout.v_item_duck
-//
-//    override fun type(mouse: Mouse) = R.layout.v_item_mouse
-//
-//    override fun holder(type: Int, view: View): BetterViewHolder<*> {
-//        return when(type) {
-//            R.layout.v_item_duck -> DuckHolder(view)
-//            R.layout.v_item_mouse -> MouseHolder(view)
-//            else -> throw RuntimeException("Illegal view type")
-//        }
-//    }
-//}
