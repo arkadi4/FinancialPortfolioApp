@@ -7,8 +7,9 @@ import com.example.financialportfolioapp.domain.entities.Asset
 class AssetListViewHolder(
     private val binding: AssetListItemBinding
 ) : RecyclerView.ViewHolder(binding.root) {
-    fun bind(model: Asset, onClick: (Asset) -> Unit) {
+    fun bind(model: Asset, onClick: (Asset) -> Unit, onDeleteClick: (Asset) -> Unit) {
         binding.tvAssetName.text = model.name
         binding.root.setOnClickListener { onClick(model) }
+        binding.btnDelete.setOnClickListener { onDeleteClick(model) }
     }
 }

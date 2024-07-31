@@ -1,7 +1,6 @@
 package com.example.financialportfolioapp.di
 
-import com.example.financialportfolioapp.data.AssetRepositoryImpl
-import com.example.financialportfolioapp.data.PortfolioItemRepositoryImpl
+import com.example.financialportfolioapp.domain.interactor.AssetListInteractor
 import com.example.financialportfolioapp.domain.repository.AssetRepository
 import com.example.financialportfolioapp.domain.repository.PortfolioItemRepository
 import dagger.Module
@@ -9,19 +8,15 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
-
 @Module
 @InstallIn(SingletonComponent::class)
-object RepositoryModule {
+object InteractorModule {
     @Provides
     @Singleton
-    fun provideAssetRepository(): AssetRepository {
-        return AssetRepositoryImpl()
-    }
-
-    @Provides
-    @Singleton
-    fun providePortfolioItemRepository(): PortfolioItemRepository {
-        return PortfolioItemRepositoryImpl()
+    fun provideInteractor(
+        assetRepository: AssetRepository,
+        portfolioItemRepository: PortfolioItemRepository
+    ): AssetListInteractor {
+        return AssetListInteractor(assetRepository, portfolioItemRepository)
     }
 }
