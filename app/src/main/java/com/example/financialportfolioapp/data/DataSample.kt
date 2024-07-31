@@ -4,7 +4,7 @@ import com.example.financialportfolioapp.domain.entities.AppCurrencies
 import com.example.financialportfolioapp.domain.entities.Asset
 import com.example.financialportfolioapp.domain.entities.Bond
 import com.example.financialportfolioapp.domain.entities.Cash
-import com.example.financialportfolioapp.domain.entities.PortfolioItemInterface
+import com.example.financialportfolioapp.domain.entities.PortfolioItem
 import com.example.financialportfolioapp.domain.entities.Price
 import com.example.financialportfolioapp.domain.entities.Stock
 import java.util.Calendar
@@ -20,7 +20,7 @@ object DataSample {
         Asset(6, "Columbia Pictures")
     )
 
-    val portfolioItemsList: MutableList<PortfolioItemInterface> = mutableListOf(
+    val portfolioItemsList: MutableList<PortfolioItem> = mutableListOf(
         Cash(
             1,
             "USD",
@@ -35,7 +35,8 @@ object DataSample {
             20.0,
             Price(
                 500.0, AppCurrencies.BYN, Calendar.getInstance()
-            )
+            ),
+            0.25
         ),
         Bond(
             3,
