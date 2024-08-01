@@ -1,16 +1,14 @@
 package com.example.financialportfolioapp.presentation.portfoliolist.rv
 
 import androidx.recyclerview.widget.DiffUtil
-import com.example.financialportfolioapp.domain.entities.PortfolioItemInterface
+import com.example.financialportfolioapp.domain.entities.PortfolioItem
 
-object PortfolioListDiffCallBack : DiffUtil.ItemCallback<PortfolioItemInterface>() {
-    override fun areItemsTheSame(
-        oldItem: PortfolioItemInterface,
-        newItem: PortfolioItemInterface
-    ) = oldItem.id == newItem.id
+object PortfolioListDiffCallBack : DiffUtil.ItemCallback<PortfolioItem>() {
+    override fun areItemsTheSame(oldItem: PortfolioItem, newItem: PortfolioItem): Boolean {
+        return oldItem.id == newItem.id
+    }
 
-    override fun areContentsTheSame(
-        oldItem: PortfolioItemInterface,
-        newItem: PortfolioItemInterface
-    ) = oldItem.name == newItem.name
+    override fun areContentsTheSame(oldItem: PortfolioItem, newItem: PortfolioItem): Boolean {
+        return oldItem.name == newItem.name
+    }
 }
