@@ -19,8 +19,8 @@ class CashHolder(view: View) : BasePortfolioListViewHolder<Cash>(view) {
     private val binding = ItemCashPortfolioListBinding.bind(view)
     override fun bind(item: Cash, onClick: (Cash) -> Unit) {
         binding.apply {
-            itemPortfolioName.text = "Cash: ${item.name}"
-            cashCurrentPrice.text = "Current price: ${item.price.getPriceString()}"
+            itemPortfolioName.text = item.name
+            cashCurrentPrice.text = item.price.getPriceString()
             cashDetailsButton.setOnClickListener { onClick(item) }
         }
     }
@@ -30,8 +30,8 @@ class StockHolder(view: View) : BasePortfolioListViewHolder<Stock>(view) {
     private val binding = ItemStockPortfolioListBinding.bind(view)
     override fun bind(item: Stock, onClick: (Stock) -> Unit) {
         binding.apply {
-            itemPortfolioName.text = "Stock: ${item.name}"
-            dividendsValue.text = "Dividends: ${item.dividends}"
+            itemPortfolioName.text = item.name
+            dividendsValue.text = item.dividends.toString()
             stockDetailsButton.setOnClickListener { onClick(item) }
         }
     }
@@ -41,8 +41,8 @@ class BondHolder(view: View) : BasePortfolioListViewHolder<Bond>(view) {
     private val binding = ItemBondPortfolioListBinding.bind(view)
     override fun bind(item: Bond, onClick: (Bond) -> Unit) {
         binding.apply {
-            itemPortfolioName.text = "Bond: ${item.name}"
-            bondFuturePrice.text = "Future price: ${item.futurePrice}"
+            itemPortfolioName.text = item.name
+            bondFuturePrice.text = item.futurePrice.toString()
             bondDetailsButton.setOnClickListener { onClick(item) }
         }
     }

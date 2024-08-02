@@ -1,6 +1,7 @@
 package com.example.financialportfolioapp.presentation.portfoliolist
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,8 +31,10 @@ class PortfolioListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val adapter = PortfolioListAdapter(TypeFactoryImpl())
+        Log.e("yyy", "$adapter")
         binding.portfolioListRv.adapter = adapter
         portfolioListViewModel.items.observe(viewLifecycleOwner) { items ->
+            Log.e("yyy", "$items")
             adapter.submit(items)
         }
     }

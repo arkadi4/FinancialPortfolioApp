@@ -7,11 +7,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.financialportfolioapp.domain.entities.PortfolioItem
 
 class PortfolioListAdapter(
-    val typeFactory: TypeFactory
+    private val typeFactory: TypeFactory,
+    private val onClick: (PortfolioItem) -> Unit = { }
 ) : RecyclerView.Adapter<BasePortfolioListViewHolder<PortfolioItem>>() {
     private var items = emptyList<PortfolioItem>()
     private val differ = AsyncListDiffer(this, PortfolioListDiffCallBack)
-    var onClick: (PortfolioItem) -> Unit = { }
 
     override fun getItemViewType(position: Int): Int {
         return items[position].type(TypeFactoryImpl())

@@ -22,4 +22,10 @@
     <string name="string_selector_button_text">change</string>
     <string name="delete">Delete</string>
     <string name="details">details</string>
+    <string name="cash">Cash:</string>
+    <string name="current_price">Current price:</string>
+    <string name="stock">Stock:</string>
+    <string name="dividends">Dividends:</string>
+    <string name="bond">Bond:</string>
+    <string name="future_price">Future price:</string>
 </resources>
