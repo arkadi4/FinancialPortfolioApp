@@ -30,7 +30,6 @@ class AssetListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val adapter = AssetListAdapter()
         adapter.onClick = onClick@{ asset ->
-            val assetId = asset.id
             val action = AssetListFragmentDirections.actionAssetListToAssetDetailsFragment(asset.id)
             findNavController().navigate(action)
         }
