@@ -1,6 +1,5 @@
 package com.example.financialportfolioapp.domain.entities
 
-import com.example.financialportfolioapp.presentation.portfoliolist.rv.TypeFactory
 import java.util.Calendar
 
 enum class AppCurrencies(
@@ -29,27 +28,19 @@ interface PortfolioItemInterface {
     val price: Price
 }
 
-interface Visitable {
-    fun type(typeFactory: TypeFactory): Int
-}
-
 abstract class PortfolioItem(
     override val id: Int,
     override val name: String,
     override val amount: Double,
     override val price: Price
-) : PortfolioItemInterface, Visitable {
-    abstract override fun type(typeFactory: TypeFactory): Int
-}
+) : PortfolioItemInterface
 
 data class Cash(
     override val id: Int,
     override val name: String,
     override val amount: Double,
     override val price: Price
-) : PortfolioItem(id, name, amount, price) {
-    override fun type(typeFactory: TypeFactory): Int = typeFactory.type(this)
-}
+) : PortfolioItemInterface
 
 data class Stock(
     override val id: Int,
@@ -57,9 +48,7 @@ data class Stock(
     override val amount: Double,
     override val price: Price,
     val dividends: Double
-) : PortfolioItem(id, name, amount, price) {
-    override fun type(typeFactory: TypeFactory): Int = typeFactory.type(this)
-}
+) : PortfolioItemInterface
 
 data class Bond(
     override val id: Int,
@@ -68,9 +57,7 @@ data class Bond(
     override val price: Price,
     val futurePrice: Double,
     val yieldToMaturity: Double
-) : PortfolioItem(id, name, amount, price) {
-    override fun type(typeFactory: TypeFactory): Int = typeFactory.type(this)
-}
+) : PortfolioItemInterface
 
 interface MetaInfoInterface {
     val country: String

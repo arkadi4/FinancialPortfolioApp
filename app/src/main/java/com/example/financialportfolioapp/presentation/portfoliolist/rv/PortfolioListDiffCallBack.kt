@@ -2,15 +2,21 @@ package com.example.financialportfolioapp.presentation.portfoliolist.rv
 
 import android.annotation.SuppressLint
 import androidx.recyclerview.widget.DiffUtil
-import com.example.financialportfolioapp.domain.entities.PortfolioItem
+import com.example.financialportfolioapp.presentation.entitiespresentation.PortfolioItemUiModel
 
-object PortfolioListDiffCallBack : DiffUtil.ItemCallback<PortfolioItem>() {
-    override fun areItemsTheSame(oldItem: PortfolioItem, newItem: PortfolioItem): Boolean {
-        return oldItem.id == newItem.id
+object PortfolioListDiffCallBack : DiffUtil.ItemCallback<PortfolioItemUiModel>() {
+    override fun areItemsTheSame(
+        oldItem: PortfolioItemUiModel,
+        newItem: PortfolioItemUiModel
+    ): Boolean {
+        return oldItem.getIdForDiffUtils() == newItem.getIdForDiffUtils()
     }
 
     @SuppressLint("DiffUtilEquals")
-    override fun areContentsTheSame(oldItem: PortfolioItem, newItem: PortfolioItem): Boolean {
+    override fun areContentsTheSame(
+        oldItem: PortfolioItemUiModel,
+        newItem: PortfolioItemUiModel
+    ): Boolean {
         return oldItem == newItem
     }
 }

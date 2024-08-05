@@ -4,29 +4,30 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.RecyclerView
-import com.example.financialportfolioapp.domain.entities.PortfolioItem
+import com.example.financialportfolioapp.presentation.entitiespresentation.PortfolioItemUiModel
+import com.example.financialportfolioapp.presentation.entitiespresentation.TypesFactory
 
-class PortfolioListAdapter(
-    private val typeFactory: TypeFactory,
-    private val onClick: (PortfolioItem) -> Unit = { }
-) : RecyclerView.Adapter<BasePortfolioListViewHolder<PortfolioItem>>() {
-    private var items = emptyList<PortfolioItem>()
+class PortfolioListAdapter() :
+    RecyclerView.Adapter<BasePortfolioListViewHolder<PortfolioItemUiModel>>() {
+    private var items = emptyList<PortfolioItemUiModel>()
     private val differ = AsyncListDiffer(this, PortfolioListDiffCallBack)
+    val onClick: (PortfolioItemUiModel) -> Unit = { }
 
     override fun getItemViewType(position: Int): Int {
-        return items[position].type(TypeFactoryImpl())
+        return items[position].type()
     }
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): BasePortfolioListViewHolder<PortfolioItem> {
+    ): BasePortfolioListViewHolder<PortfolioItemUiModel> {
         val view = LayoutInflater.from(parent.context).inflate(viewType, parent, false)
-        return typeFactory.holder(viewType, view) as BasePortfolioListViewHolder<PortfolioItem>
+        return TypesFactory.holder(viewType, view)
+                as BasePortfolioListViewHolder<PortfolioItemUiModel>
     }
 
     override fun onBindViewHolder(
-        holder: BasePortfolioListViewHolder<PortfolioItem>,
+        holder: BasePortfolioListViewHolder<PortfolioItemUiModel>,
         position: Int
     ) {
         holder.bind(items[position], onClick)
@@ -36,7 +37,7 @@ class PortfolioListAdapter(
         return items.size
     }
 
-    fun submit(newItems: List<PortfolioItem>) {
+    fun submit(newItems: List<PortfolioItemUiModel>) {
         items = newItems
         differ.submitList(newItems)
     }
