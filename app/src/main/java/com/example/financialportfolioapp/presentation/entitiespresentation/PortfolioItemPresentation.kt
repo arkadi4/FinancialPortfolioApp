@@ -21,7 +21,7 @@ object TypesFactory {
     }
 }
 
-abstract class PortfolioItemUiModel() {
+abstract class PortfolioItemUiModel {
     abstract fun type(): Int
     abstract fun getIdForDiffUtils(): Int
 }

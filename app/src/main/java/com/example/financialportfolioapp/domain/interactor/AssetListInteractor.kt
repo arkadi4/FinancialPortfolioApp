@@ -11,15 +11,15 @@ class AssetListInteractor @Inject constructor(
     private val assetRepository: AssetRepository,
     private val portfolioItemRepository: PortfolioItemRepository
 ) {
-    suspend fun getAssets(): List<Asset> {
+    fun getAssets(): List<Asset> {
         return assetRepository.getAssets()
     }
 
-    suspend fun deleteAssetById(id: Int) {
+    fun deleteAssetById(id: Int) {
         assetRepository.deleteAssetById(id)
     }
 
-    suspend fun deleteItemById(id: Int) {
+    fun deleteItemById(id: Int) {
         portfolioItemRepository.deleteItemById(id)
     }
 }

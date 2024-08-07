@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.financialportfolioapp.presentation.entitiespresentation.PortfolioItemUiModel
 import com.example.financialportfolioapp.presentation.entitiespresentation.TypesFactory
 
-class PortfolioListAdapter() :
+class PortfolioListAdapter :
     RecyclerView.Adapter<BasePortfolioListViewHolder<PortfolioItemUiModel>>() {
     private var items = emptyList<PortfolioItemUiModel>()
     private val differ = AsyncListDiffer(this, PortfolioListDiffCallBack)
@@ -23,7 +23,7 @@ class PortfolioListAdapter() :
     ): BasePortfolioListViewHolder<PortfolioItemUiModel> {
         val view = LayoutInflater.from(parent.context).inflate(viewType, parent, false)
         return TypesFactory.holder(viewType, view)
-                as BasePortfolioListViewHolder<PortfolioItemUiModel>
+            as BasePortfolioListViewHolder<PortfolioItemUiModel>
     }
 
     override fun onBindViewHolder(

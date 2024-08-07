@@ -3,7 +3,6 @@ package com.example.financialportfolioapp.presentation.portfoliolist
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.example.financialportfolioapp.domain.entities.Bond
 import com.example.financialportfolioapp.domain.entities.Cash
 import com.example.financialportfolioapp.domain.entities.PortfolioItemInterface
@@ -14,7 +13,6 @@ import com.example.financialportfolioapp.presentation.entitiespresentation.CashU
 import com.example.financialportfolioapp.presentation.entitiespresentation.PortfolioItemUiModel
 import com.example.financialportfolioapp.presentation.entitiespresentation.StockUiModel
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -25,12 +23,10 @@ class PortfolioListViewModel @Inject constructor(
     val items: LiveData<List<PortfolioItemUiModel>> get() = _items
 
     init {
-        viewModelScope.launch {
-            _items.value = mapDataToUiModel(loadSampleData())
-        }
+        _items.value = mapDataToUiModel(loadSampleData())
     }
 
-    private suspend fun loadSampleData(): List<PortfolioItemInterface> {
+    private fun loadSampleData(): List<PortfolioItemInterface> {
         return portfolioItemRepository.getItems()
     }
 

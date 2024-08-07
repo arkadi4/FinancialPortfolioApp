@@ -22,55 +22,25 @@
             android:orientation="vertical"
             android:layout_weight="0.9">
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/cash_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_marginStart="10dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textSize="30sp"
+                android:text="@string/cash"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:textSize="30sp"
-                    android:text="@string/cash"/>
-
-                <TextView
-                    android:id="@+id/item_portfolio_name"
-                    android:layout_marginStart="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    tools:text="111111111111"
-                    android:textSize="30sp" />
-            </LinearLayout>
-
-            <LinearLayout
+            <TextView
+                android:id="@+id/cash_current_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:textSize="20sp"
-                    android:text="@string/current_price"/>
-
-                <TextView
-                    android:id="@+id/cash_current_price"
-                    android:layout_marginStart="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    tools:text="111111111111"
-                    android:textSize="20sp" />
-            </LinearLayout>
+                android:layout_marginStart="10dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textSize="20sp"
+                android:text="@string/current_price"/>
 
         </LinearLayout>
 

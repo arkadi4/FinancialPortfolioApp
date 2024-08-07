@@ -3,7 +3,7 @@ package com.example.financialportfolioapp.domain.repository
 import com.example.financialportfolioapp.domain.entities.Asset
 
 interface AssetRepository {
-    suspend fun getAssets(): List<Asset>
-    suspend fun getAssetById(assetId: Int): Asset?
-    suspend fun deleteAssetById(assetId: Int)
+    fun getAssets(): List<Asset>
+    fun getAssetById(assetId: Int): Asset?
+    fun deleteAssetById(assetId: Int)
 }

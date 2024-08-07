@@ -2,20 +2,18 @@ package com.example.financialportfolioapp.data
 
 import com.example.financialportfolioapp.domain.entities.PortfolioItemInterface
 import com.example.financialportfolioapp.domain.repository.PortfolioItemRepository
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class PortfolioItemRepositoryImpl @Inject constructor() : PortfolioItemRepository {
-    override suspend fun getItems(): List<PortfolioItemInterface> {
-        return withContext(Dispatchers.IO) { DataSample.portfolioItemsList }
+    override fun getItems(): List<PortfolioItemInterface> {
+        return DataSample.portfolioItemsList
     }
 
-    override suspend fun getItemById(itemId: Int): PortfolioItemInterface? {
-        return withContext(Dispatchers.IO) { getItems().firstOrNull { it.id == itemId } }
+    override fun getItemById(itemId: Int): PortfolioItemInterface? {
+        return getItems().firstOrNull { it.id == itemId }
     }
 
-    override suspend fun deleteItemById(itemId: Int) {
-        withContext(Dispatchers.IO) { DataSample.deleteItem(itemId) }
+    override fun deleteItemById(itemId: Int) {
+        DataSample.deleteItem(itemId)
     }
 }
