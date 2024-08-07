@@ -21,4 +21,11 @@
     <string name="settings_fragment_text">Default currency</string>
     <string name="string_selector_button_text">change</string>
     <string name="delete">Delete</string>
+    <string name="details">details</string>
+    <string name="cash">Cash: %1$s</string>
+    <string name="current_price">Current price: %1$s</string>
+    <string name="stock">Stock: %1$s</string>
+    <string name="dividends">Dividends: %1$s</string>
+    <string name="bond">Bond: %1$s</string>
+    <string name="future_price">Future price: %1$s</string>
 </resources>

@@ -34,6 +34,7 @@ class AssetDetailsFragment : Fragment() {
         val assetId = args.assetId
 
         assetDetailViewModel.loadItem(assetId)
+
         assetDetailViewModel.item.observe(viewLifecycleOwner) {
             val item = it ?: return@observe
 

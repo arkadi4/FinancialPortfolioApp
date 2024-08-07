@@ -12,7 +12,6 @@ import javax.inject.Inject
 class AssetDetailsViewModel @Inject constructor(
     private val portfolioItemRepository: PortfolioItemRepository
 ) : ViewModel() {
-
     private val _item = MutableLiveData<PortfolioItemInterface?>()
     val item: LiveData<PortfolioItemInterface?> get() = _item
 

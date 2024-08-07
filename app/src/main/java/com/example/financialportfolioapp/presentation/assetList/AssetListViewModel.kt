@@ -30,6 +30,7 @@ class AssetListViewModel @Inject constructor(
     private fun loadData() {
         _assets.value = assetRepository.getAssets()
     }
+
     fun deleteItem(asset: Asset) {
         interactor.deleteAssetById(asset.id)
         loadData()
