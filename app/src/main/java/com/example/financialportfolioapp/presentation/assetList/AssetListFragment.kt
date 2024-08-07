@@ -37,9 +37,7 @@ class AssetListFragment : Fragment() {
             findNavController().navigate(action)
         }
         adapter.onDeleteClick = { asset ->
-            viewLifecycleOwner.lifecycleScope.launch {
-                assetListViewModel.deleteItem(asset)
-            }
+            assetListViewModel.deleteItem(asset)
         }
         binding.rv.adapter = adapter
         assetListViewModel.assets.observe(viewLifecycleOwner) { assets ->
