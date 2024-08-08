@@ -15,7 +15,7 @@ class AssetDetailsViewModel @Inject constructor(
     private val _item = MutableLiveData<PortfolioItemInterface?>()
     val item: LiveData<PortfolioItemInterface?> get() = _item
 
-    fun loadItem(assetId: Int) {
+    suspend fun loadItem(assetId: Int) {
         val item = portfolioItemRepository.getItemById(assetId)
         _item.value = item
     }

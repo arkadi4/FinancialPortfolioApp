@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.example.financialportfolioapp.R
 import com.example.financialportfolioapp.data.AppCurrencies
 import com.example.financialportfolioapp.databinding.FragmentBottomSheetListBinding
@@ -14,6 +15,7 @@ import com.example.financialportfolioapp.presentation.settings.SettingsScreenVie
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import kotlinx.coroutines.launch
 
 class SelectCurrencyDialogFragment : BottomSheetDialogFragment() {
     private var _binding: FragmentBottomSheetListBinding? = null
@@ -38,7 +40,9 @@ class SelectCurrencyDialogFragment : BottomSheetDialogFragment() {
         )
         binding.bottomSheetList.adapter = adapter
         binding.bottomSheetList.setOnItemClickListener { _, _, position, _ ->
-            settingsScreenViewModel.setDefaultCurrency(currenciesList[position].currencyName)
+            viewLifecycleOwner.lifecycleScope.launch {
+                settingsScreenViewModel.setDefaultCurrency(currenciesList[position].currencyName)
+            }
             dialog?.dismiss()
         }
     }

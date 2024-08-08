@@ -6,11 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
 import com.example.financialportfolioapp.databinding.FragmentAssetDetailsBinding
 import com.example.financialportfolioapp.presentation.utils.DateTimeUtils
 import com.example.financialportfolioapp.presentation.utils.DateTimeUtils.dateTimeFormatter
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class AssetDetailsFragment : Fragment() {
@@ -33,7 +35,7 @@ class AssetDetailsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val assetId = args.assetId
 
-        assetDetailViewModel.loadItem(assetId)
+        viewLifecycleOwner.lifecycleScope.launch { assetDetailViewModel.loadItem(assetId) }
 
         assetDetailViewModel.item.observe(viewLifecycleOwner) {
             val item = it ?: return@observe
