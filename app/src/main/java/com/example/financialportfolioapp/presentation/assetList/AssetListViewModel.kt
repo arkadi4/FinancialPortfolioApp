@@ -26,17 +26,19 @@ class AssetListViewModel @Inject constructor(
     val items: LiveData<List<PortfolioItemInterface>> get() = _items
 
     init {
+        loadData()
+    }
+
+    private fun loadData() {
         viewModelScope.launch {
-            loadData()
+            _assets.value = assetRepository.getAssets()
         }
     }
 
-    private suspend fun loadData() {
-        _assets.value = assetRepository.getAssets()
-    }
-
-    suspend fun deleteItem(asset: Asset) {
-        interactor.deleteAssetById(asset.id)
-        loadData()
+    fun deleteItem(asset: Asset) {
+        viewModelScope.launch {
+            interactor.deleteAssetById(asset.id)
+            loadData()
+        }
     }
 }

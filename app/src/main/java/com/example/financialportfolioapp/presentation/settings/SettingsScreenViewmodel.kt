@@ -26,8 +26,10 @@ class SettingsScreenViewmodel @Inject constructor(
         }
     }
 
-    suspend fun setDefaultCurrency(newCurrency: String) {
-        _uiState.value = _uiState.value!!.copy(defaultCurrencyValue = newCurrency)
-        settingsStorageRepository.setSettings(newCurrency)
+    fun setDefaultCurrency(newCurrency: String) {
+        viewModelScope.launch {
+            _uiState.value = _uiState.value!!.copy(defaultCurrencyValue = newCurrency)
+            settingsStorageRepository.setSettings(newCurrency)
+        }
     }
 }
