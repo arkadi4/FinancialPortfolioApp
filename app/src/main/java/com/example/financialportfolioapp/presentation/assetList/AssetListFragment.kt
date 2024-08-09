@@ -6,12 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.financialportfolioapp.databinding.FragmentAssetListBinding
 import com.example.financialportfolioapp.presentation.assetList.rv.AssetListAdapter
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class AssetListFragment : Fragment() {

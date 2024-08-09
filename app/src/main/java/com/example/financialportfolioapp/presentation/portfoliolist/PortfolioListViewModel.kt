@@ -3,6 +3,7 @@ package com.example.financialportfolioapp.presentation.portfoliolist
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.financialportfolioapp.domain.entities.Bond
 import com.example.financialportfolioapp.domain.entities.Cash
 import com.example.financialportfolioapp.domain.entities.PortfolioItemInterface
@@ -14,6 +15,9 @@ import com.example.financialportfolioapp.presentation.entitiespresentation.Portf
 import com.example.financialportfolioapp.presentation.entitiespresentation.StockUiModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 @HiltViewModel
 class PortfolioListViewModel @Inject constructor(
@@ -23,20 +27,26 @@ class PortfolioListViewModel @Inject constructor(
     val items: LiveData<List<PortfolioItemUiModel>> get() = _items
 
     init {
-        _items.value = mapDataToUiModel(loadSampleData())
+        loadSampleData()
     }
 
-    private fun loadSampleData(): List<PortfolioItemInterface> {
-        return portfolioItemRepository.getItems()
+    private fun loadSampleData() {
+        viewModelScope.launch {
+            _items.value = mapDataToUiModel(portfolioItemRepository.getItems())
+        }
     }
 
-    private fun mapDataToUiModel(data: List<PortfolioItemInterface>): List<PortfolioItemUiModel> {
-        return data.map {
-            when (it) {
-                is Cash -> CashUiModel(it)
-                is Stock -> StockUiModel(it)
-                is Bond -> BondUiModel(it)
-                else -> throw RuntimeException("Illegal view type")
+    private suspend fun mapDataToUiModel(
+        data: List<PortfolioItemInterface>
+    ): List<PortfolioItemUiModel> {
+        return withContext(Dispatchers.Default) {
+            data.map {
+                when (it) {
+                    is Cash -> CashUiModel(it)
+                    is Stock -> StockUiModel(it)
+                    is Bond -> BondUiModel(it)
+                    else -> throw RuntimeException("Illegal view type")
+                }
             }
         }
     }
