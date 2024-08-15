@@ -36,9 +36,7 @@ object DataSample {
             Price(
                 500.0, AppCurrencies.BYN, Calendar.getInstance()
             ),
-            Price(
-                550.0, AppCurrencies.BYN, Calendar.getInstance()
-            )
+            0.25
         ),
         Bond(
             3,
@@ -47,7 +45,9 @@ object DataSample {
             Price(
                 30.0, AppCurrencies.BYN, Calendar.getInstance()
             ),
-            350.0,
+            Price(
+                35.0, AppCurrencies.BYN, Calendar.getInstance()
+            ),
             50.0
         )
     )

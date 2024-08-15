@@ -34,7 +34,7 @@ class StockViewHolder(view: View) : BasePortfolioListViewHolder<StockUiModel>(vi
         binding.apply {
             stockName.text = binding.root.context.getString(R.string.stock, item.stock.name)
             stockDividends.text = binding.root.context
-                .getString(R.string.dividends, item.stock.dividends.priceValue.toString())
+                .getString(R.string.dividends, item.stock.dividends.toString())
             stockDetailsButton.setOnClickListener { onClick(item) }
         }
     }
@@ -46,7 +46,7 @@ class BondViewHolder(view: View) : BasePortfolioListViewHolder<BondUiModel>(view
         binding.apply {
             bondName.text = binding.root.context.getString(R.string.bond, item.bond.name)
             bondFuturePrice.text = binding.root.context
-                .getString(R.string.future_price, item.bond.futurePrice.toString())
+                .getString(R.string.future_price, item.bond.futurePrice.priceValue.toString())
             bondDetailsButton.setOnClickListener { onClick(item) }
         }
     }

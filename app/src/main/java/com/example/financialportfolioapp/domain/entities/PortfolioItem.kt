@@ -47,7 +47,7 @@ data class Stock(
     override val name: String,
     override val amount: Double,
     override val price: Price,
-    val dividends: Price
+    val dividends: Double
 ) : PortfolioItemInterface
 
 data class Bond(
@@ -55,7 +55,7 @@ data class Bond(
     override val name: String,
     override val amount: Double,
     override val price: Price,
-    val futurePrice: Double,
+    val futurePrice: Price,
     val yieldToMaturity: Double
 ) : PortfolioItemInterface
 
