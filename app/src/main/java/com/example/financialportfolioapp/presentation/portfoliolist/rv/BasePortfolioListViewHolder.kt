@@ -34,7 +34,7 @@ class StockViewHolder(view: View) : BasePortfolioListViewHolder<StockUiModel>(vi
         binding.apply {
             stockName.text = binding.root.context.getString(R.string.stock, item.stock.name)
             stockDividends.text = binding.root.context
-                .getString(R.string.dividends, item.stock.dividends.toString())
+                .getString(R.string.dividends, item.stock.dividends.priceValue.toString())
             stockDetailsButton.setOnClickListener { onClick(item) }
         }
     }
