@@ -15,11 +15,11 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 
 class SettingsStorageRepositoryImpl @Inject constructor(
-    @ApplicationContext val context: Context
+    @ApplicationContext private val context: Context
 ) : SettingsStorageRepository {
-    val Context.dataStore: DataStore<Preferences>
+    private val Context.dataStore: DataStore<Preferences>
         by preferencesDataStore(name = SETTINGS_STORAGE_NAME)
-    val defaultCurrencyKey = stringPreferencesKey(DEFAULT_CURRENCY_KEY)
+    private val defaultCurrencyKey = stringPreferencesKey(DEFAULT_CURRENCY_KEY)
 
     override suspend fun getSettings(): String {
         return withContext(Dispatchers.IO) {
