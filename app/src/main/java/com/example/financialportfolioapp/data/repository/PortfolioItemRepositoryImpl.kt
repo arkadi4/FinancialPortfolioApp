@@ -1,5 +1,6 @@
-package com.example.financialportfolioapp.data
+package com.example.financialportfolioapp.data.repository
 
+import com.example.financialportfolioapp.data.DataSample
 import com.example.financialportfolioapp.domain.entities.PortfolioItemInterface
 import com.example.financialportfolioapp.domain.repository.PortfolioItemRepository
 import javax.inject.Inject
