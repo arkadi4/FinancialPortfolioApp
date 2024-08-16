@@ -55,7 +55,7 @@ data class Bond(
     override val name: String,
     override val amount: Double,
     override val price: Price,
-    val futurePrice: Double,
+    val futurePrice: Price,
     val yieldToMaturity: Double
 ) : PortfolioItemInterface
 

@@ -45,7 +45,9 @@ object DataSample {
             Price(
                 30.0, AppCurrencies.BYN, Calendar.getInstance()
             ),
-            350.0,
+            Price(
+                35.0, AppCurrencies.BYN, Calendar.getInstance()
+            ),
             50.0
         )
     )

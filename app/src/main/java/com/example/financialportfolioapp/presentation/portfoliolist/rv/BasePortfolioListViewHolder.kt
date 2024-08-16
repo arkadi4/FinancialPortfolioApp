@@ -46,7 +46,7 @@ class BondViewHolder(view: View) : BasePortfolioListViewHolder<BondUiModel>(view
         binding.apply {
             bondName.text = binding.root.context.getString(R.string.bond, item.bond.name)
             bondFuturePrice.text = binding.root.context
-                .getString(R.string.future_price, item.bond.futurePrice.toString())
+                .getString(R.string.future_price, item.bond.futurePrice.priceValue.toString())
             bondDetailsButton.setOnClickListener { onClick(item) }
         }
     }
