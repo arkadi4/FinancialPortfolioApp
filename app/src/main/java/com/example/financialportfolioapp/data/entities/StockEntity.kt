@@ -30,5 +30,4 @@ data class StockEntity(
     val dividends: Double,
     @ColumnInfo(name = "portfolioItemId")
     val portfolioItemId: Int
-
 )

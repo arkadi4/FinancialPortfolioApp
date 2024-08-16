@@ -11,5 +11,4 @@ data class AssetEntity(
     val id: Int = 0,
     @ColumnInfo(name = "name")
     val name: String
-
 )

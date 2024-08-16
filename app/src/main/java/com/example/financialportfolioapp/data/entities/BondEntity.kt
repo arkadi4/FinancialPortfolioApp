@@ -32,5 +32,4 @@ data class BondEntity(
     val yieldToMaturity: Double,
     @ColumnInfo(name = "portfolioItemId")
     val portfolioItemId: Int
-
 )

@@ -28,5 +28,4 @@ data class CashEntity(
     val price: Double,
     @ColumnInfo(name = "portfolioItemId")
     val portfolioItemId: Int
-
 )
