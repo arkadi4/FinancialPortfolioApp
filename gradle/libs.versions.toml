@@ -17,6 +17,7 @@ constraintlayout = "2.1.4"
 navigationFragmentKtx = "2.7.7"
 room = "2.6.1"
 
+
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-fragment-ktx = { module = "androidx.fragment:fragment-ktx", version.ref = "fragmentKtx" }
