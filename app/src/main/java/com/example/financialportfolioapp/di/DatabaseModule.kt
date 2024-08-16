@@ -21,8 +21,11 @@ object DatabaseModule {
         return Room.databaseBuilder(
             appContext,
             AppDatabase::class.java,
-            "assets_database"
-        ).build()
+            "assets_database.db"
+        )
+            .createFromAsset("assets_database.db")
+            .fallbackToDestructiveMigration()
+            .build()
     }
 
     @Provides

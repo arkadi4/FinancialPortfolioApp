@@ -9,6 +9,7 @@ import com.example.financialportfolioapp.data.entities.PortfolioItemEntity
 import com.example.financialportfolioapp.data.entities.StockEntity
 
 @Database(
+    version = 1,
     entities =
     [
         AssetEntity::class,
@@ -16,9 +17,7 @@ import com.example.financialportfolioapp.data.entities.StockEntity
         BondEntity::class,
         CashEntity::class,
         PortfolioItemEntity::class
-    ],
-
-    version = 1, exportSchema = false
+    ]
 )
 abstract class AppDatabase : RoomDatabase() {
     abstract fun assetDao(): AssetDao

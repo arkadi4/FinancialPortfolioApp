@@ -3,10 +3,9 @@ package com.example.financialportfolioapp.data.repository
 import com.example.financialportfolioapp.data.local.AssetDao
 import com.example.financialportfolioapp.domain.entities.Asset
 import com.example.financialportfolioapp.domain.repository.AssetRepository
+import javax.inject.Inject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import javax.inject.Inject
-
 class AssetRepositoryImpl @Inject constructor(
     private val assetDao: AssetDao
 ) : AssetRepository {
