@@ -8,6 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.example.financialportfolioapp.databinding.FragmentAssetDetailsBinding
+import com.example.financialportfolioapp.domain.entities.Bond
+import com.example.financialportfolioapp.domain.entities.Cash
+import com.example.financialportfolioapp.domain.entities.Stock
 import com.example.financialportfolioapp.presentation.utils.DateTimeUtils
 import com.example.financialportfolioapp.presentation.utils.DateTimeUtils.dateTimeFormatter
 import dagger.hilt.android.AndroidEntryPoint
@@ -39,12 +42,36 @@ class AssetDetailsFragment : Fragment() {
             val item = it ?: return@observe
 
             binding.apply {
-                nameValue.text = item.name
-                amountValue.text = item.amount.toString()
-                priceValue.text = item.price.priceValue.toString()
-                currencyValue.text = item.price.priceCurrency.toString()
-                lastPriceUpdateValue.text = item.price.dateOfLastPriceUpdate.let {
-                    DateTimeUtils.formatCalendar(it, dateTimeFormatter)
+                when (item) {
+                    is Stock -> {
+                        nameValue.text = item.name
+                        amountValue.text = item.amount.toString()
+                        priceValue.text = item.price.priceValue.toString()
+                        currencyValue.text = item.price.priceCurrency.toString()
+                        lastPriceUpdateValue.text = item.price.dateOfLastPriceUpdate.let {
+                            DateTimeUtils.formatCalendar(it, dateTimeFormatter)
+                        }
+                    }
+
+                    is Bond -> {
+                        nameValue.text = item.name
+                        amountValue.text = item.amount.toString()
+                        priceValue.text = item.price.priceValue.toString()
+                        currencyValue.text = item.price.priceCurrency.toString()
+                        lastPriceUpdateValue.text = item.price.dateOfLastPriceUpdate.let {
+                            DateTimeUtils.formatCalendar(it, dateTimeFormatter)
+                        }
+                    }
+
+                    is Cash -> {
+                        nameValue.text = item.name
+                        amountValue.text = item.amount.toString()
+                        priceValue.text = item.price.priceValue.toString()
+                        currencyValue.text = item.price.priceCurrency.toString()
+                        lastPriceUpdateValue.text = item.price.dateOfLastPriceUpdate.let {
+                            DateTimeUtils.formatCalendar(it, dateTimeFormatter)
+                        }
+                    }
                 }
             }
         }

@@ -4,6 +4,7 @@ import com.example.financialportfolioapp.domain.entities.AppCurrencies
 import com.example.financialportfolioapp.domain.entities.Asset
 import com.example.financialportfolioapp.domain.entities.Bond
 import com.example.financialportfolioapp.domain.entities.Cash
+import com.example.financialportfolioapp.domain.entities.DomainItemType
 import com.example.financialportfolioapp.domain.entities.PortfolioItemInterface
 import com.example.financialportfolioapp.domain.entities.Price
 import com.example.financialportfolioapp.domain.entities.Stock
@@ -12,12 +13,12 @@ import java.util.Calendar
 object DataSample {
 
     val assetList: MutableList<Asset> = mutableListOf(
-        Asset(1, "USD"),
-        Asset(2, "BYN"),
-        Asset(3, "Minsk Tractors"),
-        Asset(4, "Lufthansa"),
-        Asset(5, "GP Morgan"),
-        Asset(6, "Columbia Pictures")
+        Asset(1, "USD", DomainItemType.CASH),
+        Asset(2, "BYN", DomainItemType.CASH),
+        Asset(3, "Minsk Tractors", DomainItemType.STOCK),
+        Asset(4, "Lufthansa", DomainItemType.STOCK),
+        Asset(5, "GP Morgan", DomainItemType.BOND),
+        Asset(6, "Columbia Pictures", DomainItemType.BOND)
     )
 
     val portfolioItemsList: MutableList<PortfolioItemInterface> = mutableListOf(

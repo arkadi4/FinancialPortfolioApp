@@ -37,7 +37,7 @@ class AssetListViewModel @Inject constructor(
 
     fun deleteItem(asset: Asset) {
         viewModelScope.launch {
-            interactor.deleteAssetById(asset.id)
+            interactor.deleteAssetById(asset.id.toLong())
             loadData()
         }
     }
