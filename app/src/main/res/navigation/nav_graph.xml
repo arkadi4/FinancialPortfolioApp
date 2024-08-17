@@ -67,8 +67,6 @@
         android:label="PortfolioDetails"
         tools:layout="@layout/fragment_portfolio_details">
 
-
-
         <argument
             android:name="id"
             app:argType="integer" />
