@@ -23,17 +23,20 @@ object TypesFactory {
 
 abstract class PortfolioItemUiModel {
     abstract fun type(): Int
-    abstract fun getIdForDiffUtils(): Int
+    abstract fun getId(): Int
 }
+
 data class CashUiModel(val cash: Cash) : PortfolioItemUiModel() {
     override fun type() = R.layout.item_cash_portfolio_list
-    override fun getIdForDiffUtils(): Int = cash.id
+    override fun getId(): Int = cash.id
 }
+
 data class StockUiModel(val stock: Stock) : PortfolioItemUiModel() {
     override fun type() = R.layout.item_stock_portfolio_list
-    override fun getIdForDiffUtils(): Int = stock.id
+    override fun getId(): Int = stock.id
 }
+
 data class BondUiModel(val bond: Bond) : PortfolioItemUiModel() {
     override fun type() = R.layout.item_bond_portfolio_list
-    override fun getIdForDiffUtils(): Int = bond.id
+    override fun getId(): Int = bond.id
 }

@@ -28,6 +28,9 @@
         <action
             android:id="@+id/action_portfolio_list_to_home_fragment"
             app:destination="@id/home_fragment" />
+        <action
+            android:id="@+id/action_portfolio_list_to_portfolio_details_fragment"
+            app:destination="@id/portfolio_details_fragment" />
     </fragment>
 
     <fragment
@@ -56,6 +59,18 @@
 
         <argument
             android:name="assetId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/portfolio_details_fragment"
+        android:name="com.example.financialportfolioapp.presentation.portfoliodetails.PortfolioDetailsFragment"
+        android:label="PortfolioDetails"
+        tools:layout="@layout/fragment_portfolio_details">
+
+
+
+        <argument
+            android:name="id"
             app:argType="integer" />
     </fragment>
 

@@ -28,4 +28,15 @@
     <string name="dividends">Dividends: %1$s</string>
     <string name="bond">Bond: %1$s</string>
     <string name="future_price">Future price: %1$s</string>
+    <string name="item_name">Name: %1$s</string>
+    <string name="item_quantity">Quantity: %1$s</string>
+    <string name="item_current_price">Current price: %1$s</string>
+    <string name="item_currency">Currency: %1$s</string>
+    <string name="item_last_price_update">Last price update: %1$s</string>
+    <string name="item_exchange_ratio_to_usd">Exchange ratio to usd: %1$s</string>
+    <string name="item_dividends">Dividends: %1$s</string>
+    <string name="item_future_price">Future price: %1$s</string>
+    <string name="item_yield_to_maturity">Yield to maturity: %1$s</string>
+    <string name="bond_only_property">This property is for bond only</string>
+
 </resources>

@@ -11,7 +11,7 @@ class PortfolioListAdapter :
     RecyclerView.Adapter<BasePortfolioListViewHolder<PortfolioItemUiModel>>() {
     private var items = emptyList<PortfolioItemUiModel>()
     private val differ = AsyncListDiffer(this, PortfolioListDiffCallBack)
-    val onClick: (PortfolioItemUiModel) -> Unit = { }
+    var onClick: (PortfolioItemUiModel) -> Unit = { }
 
     override fun getItemViewType(position: Int): Int {
         return items[position].type()
