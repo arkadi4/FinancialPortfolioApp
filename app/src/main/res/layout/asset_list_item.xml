@@ -28,7 +28,7 @@
         android:id="@+id/btn_delete"
         android:layout_width="140dp"
         android:layout_height="match_parent"
-        android:backgroundTint="#ff00"
+        android:backgroundTint="#1183f5"
         android:textSize="20sp"
         android:text="@string/delete"/>
 
