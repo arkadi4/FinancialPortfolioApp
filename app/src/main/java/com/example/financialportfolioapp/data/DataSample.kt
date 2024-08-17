@@ -28,7 +28,7 @@ object DataSample {
             Price(
                 1.0, AppCurrencies.USD, Calendar.getInstance()
             ),
-            1.0
+            1.1
         ),
         Stock(
             2,
