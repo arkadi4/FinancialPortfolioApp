@@ -8,7 +8,7 @@ object PortfolioListDiffCallBack : DiffUtil.ItemCallback<PortfolioItemUiModel>()
         oldItem: PortfolioItemUiModel,
         newItem: PortfolioItemUiModel
     ): Boolean {
-        return oldItem.getIdForDiffUtils() == newItem.getIdForDiffUtils()
+        return oldItem.getId() == newItem.getId()
     }
 
     override fun areContentsTheSame(
