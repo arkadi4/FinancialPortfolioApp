@@ -51,6 +51,9 @@ class AssetDetailsFragment : Fragment() {
                         lastPriceUpdateValue.text = item.price.dateOfLastPriceUpdate.let {
                             DateTimeUtils.formatCalendar(it, dateTimeFormatter)
                         }
+                        dividendsValue.text = item.dividends.toString()
+                        futurePriceValue.visibility = View.GONE
+                        futurePrice.visibility = View.GONE
                     }
 
                     is Bond -> {
@@ -61,6 +64,9 @@ class AssetDetailsFragment : Fragment() {
                         lastPriceUpdateValue.text = item.price.dateOfLastPriceUpdate.let {
                             DateTimeUtils.formatCalendar(it, dateTimeFormatter)
                         }
+                        futurePriceValue.text = item.futurePrice.priceValue.toString()
+                        dividendsValue.visibility = View.GONE
+                        dividends.visibility = View.GONE
                     }
 
                     is Cash -> {
@@ -71,6 +77,11 @@ class AssetDetailsFragment : Fragment() {
                         lastPriceUpdateValue.text = item.price.dateOfLastPriceUpdate.let {
                             DateTimeUtils.formatCalendar(it, dateTimeFormatter)
                         }
+                        dividendsValue.visibility = View.GONE
+                        dividends.visibility = View.GONE
+                        futurePriceValue.visibility = View.GONE
+                        futurePrice.visibility = View.GONE
+
                     }
                 }
             }

@@ -18,6 +18,7 @@ activity = "1.9.0"
 constraintlayout = "2.1.4"
 navigationFragmentKtx = "2.7.7"
 room = "2.6.1"
+serialization = "1.9.0"
 
 
 [libraries]
@@ -49,3 +50,4 @@ androidx-room-common = { group = "androidx.room", name = "room-common", version.
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "serialization" }

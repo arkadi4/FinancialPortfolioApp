@@ -20,8 +20,8 @@ class Price(
     var dateOfLastPriceUpdate: Calendar
 ) {
     fun getPriceString(): String = "$priceValue ${priceCurrency.currencyName}"
-    // val history: MutableMap<Calendar, String> =
-    //    mutableMapOf(dateOfLastPriceUpdate to getPriceString())
+     val history: MutableMap<@Serializable(with = CalendarAsStringSerializer::class)Calendar, String> =
+        mutableMapOf(dateOfLastPriceUpdate to getPriceString())
 }
 
 interface PortfolioItemInterface {

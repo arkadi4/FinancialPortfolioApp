@@ -15,6 +15,6 @@ interface PortfolioItemRepository {
 
     suspend fun addCash(name: String, amount: Double, price: Price)
     suspend fun getItems(): List<PortfolioItemInterface>
-    suspend fun getItemById(itemId: Long): Any?
+    suspend fun getItemById(itemId: Long): PortfolioItemInterface?
     suspend fun deleteItemById(itemId: Long)
 }

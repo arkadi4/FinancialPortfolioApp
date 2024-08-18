@@ -15,9 +15,9 @@ import com.example.financialportfolioapp.domain.entities.DomainItemType
 import com.example.financialportfolioapp.domain.entities.PortfolioItemInterface
 import com.example.financialportfolioapp.domain.entities.Price
 import com.example.financialportfolioapp.domain.repository.PortfolioItemRepository
-import javax.inject.Inject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
 class PortfolioItemRepositoryImpl @Inject constructor(
     private val assetDao: AssetDao,
@@ -81,7 +81,7 @@ class PortfolioItemRepositoryImpl @Inject constructor(
         return withContext(Dispatchers.IO) { DataSample.portfolioItemsList }
     }
 
-    override suspend fun getItemById(itemId: Long): Any? {
+    override suspend fun getItemById(itemId: Long): PortfolioItemInterface? {
         return withContext(Dispatchers.IO) {
             val asset = assetDao.getAssetById(itemId)
             when (asset.type) {
