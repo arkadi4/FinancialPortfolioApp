@@ -82,9 +82,9 @@ class PortfolioItemRepositoryImpl @Inject constructor(
     }
 
     override suspend fun getItemById(itemId: Long): Any? {
-       return withContext(Dispatchers.IO) {
+        return withContext(Dispatchers.IO) {
             val asset = assetDao.getAssetById(itemId)
-             when (asset.type) {
+            when (asset.type) {
                 DomainItemType.STOCK -> stockDao.getStockById(itemId)
                 DomainItemType.BOND -> bondDao.getBondById(itemId)
                 DomainItemType.CASH -> cashDao.getCashById(itemId)
