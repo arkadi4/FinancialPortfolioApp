@@ -53,10 +53,7 @@ dependencies {
     implementation libs.kotlinx.serialization.json
     implementation libs.okhttp
     implementation libs.retrofit
-
     implementation libs.retrofit2.kotlinx.serialization.converter
-//    implementation libs.converter.kotlinx.serialization
-
     implementation libs.androidx.datastore.preferences
     implementation libs.hilt.android
     implementation libs.androidx.room.common
