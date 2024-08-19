@@ -1,7 +1,6 @@
 package com.example.financialportfolioapp.di
 
 import com.example.financialportfolioapp.data.service.CurrencyApiService
-import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -12,6 +11,7 @@ import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
+import retrofit2.converter.kotlinx.serialization.asConverterFactory
 
 @Module
 @InstallIn(SingletonComponent::class)
