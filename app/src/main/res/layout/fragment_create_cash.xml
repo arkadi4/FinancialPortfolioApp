@@ -31,14 +31,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:hint="@string/stock_price"
+            android:hint="@string/cash_price_in_usd"
             android:minHeight="48dp" />
 
         <Button
             android:id="@+id/btn_save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/save_cash"
+            android:text="@string/save"
             android:layout_gravity="center" />
 
     </LinearLayout>

@@ -15,8 +15,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:hint="@string/stock_name"
-            android:minHeight="48dp" />
+            android:hint="@string/stock_name_1"
+            android:minHeight="48dp"
+            tools:ignore="HardcodedText" />
 
         <EditText
             android:id="@+id/edit_amount"
@@ -31,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:hint="@string/stock_price"
+            android:hint="@string/price_in_usd"
             android:minHeight="48dp" />
 
         <EditText
@@ -39,7 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:hint="@string/future_price_create"
+            android:hint="@string/future_price_in_usd"
             android:minHeight="48dp" />
 
         <EditText
@@ -54,7 +55,7 @@
             android:id="@+id/btn_save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/save_bond"
+            android:text="@string/save"
             android:layout_gravity="center" />
 
     </LinearLayout>
