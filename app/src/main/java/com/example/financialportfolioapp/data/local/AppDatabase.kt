@@ -15,7 +15,7 @@ import com.example.financialportfolioapp.data.local.dao.StockDao
 import com.example.financialportfolioapp.data.local.dao.UniqueIdDao
 
 @Database(
-    version = 1,
+    version = 2,
     entities =
     [
         AssetEntity::class,

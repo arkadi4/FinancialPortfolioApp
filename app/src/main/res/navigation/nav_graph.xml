@@ -18,6 +18,9 @@
         <action
             android:id="@+id/action_home_fragment_to_asset_list"
             app:destination="@id/asset_list" />
+        <action
+            android:id="@+id/action_home_fragment_to_selectAssetTypeFragment"
+            app:destination="@id/selectAssetTypeFragment" />
     </fragment>
 
     <fragment
@@ -71,5 +74,35 @@
             android:name="id"
             app:argType="integer" />
     </fragment>
+    <fragment
+        android:id="@+id/selectAssetTypeFragment"
+        android:name="com.example.financialportfolioapp.selectAssetType.SelectAssetTypeFragment"
+        android:label="fragment_select_asset_type"
+        tools:layout="@layout/fragment_select_asset_type" >
+        <action
+            android:id="@+id/action_selectAssetTypeFragment_to_createBondFragment"
+            app:destination="@id/createBondFragment" />
+        <action
+            android:id="@+id/action_selectAssetTypeFragment_to_createCashFragment"
+            app:destination="@id/createCashFragment" />
+        <action
+            android:id="@+id/action_selectAssetTypeFragment_to_createStockFragment"
+            app:destination="@id/createStockFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createBondFragment"
+        android:name="com.example.financialportfolioapp.presentation.createBond.CreateBondFragment"
+        android:label="fragment_create_bond"
+        tools:layout="@layout/fragment_create_bond" />
+    <fragment
+        android:id="@+id/createCashFragment"
+        android:name="com.example.financialportfolioapp.presentation.createCash.CreateCashFragment"
+        android:label="fragment_create_cash"
+        tools:layout="@layout/fragment_create_cash" />
+    <fragment
+        android:id="@+id/createStockFragment"
+        android:name="com.example.financialportfolioapp.presentation.createStock.CreateStockFragment"
+        android:label="fragment_create_stock"
+        tools:layout="@layout/fragment_create_stock" />
 
 </navigation>

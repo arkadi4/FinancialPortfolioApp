@@ -36,7 +36,7 @@ class PortfolioDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val itemId = args.id
-        portfolioDetailsViewModel.loadItem(itemId)
+        portfolioDetailsViewModel.loadItem(itemId.toLong())
 
         portfolioDetailsViewModel.item.observe(viewLifecycleOwner) {
             val item = it ?: return@observe

@@ -66,13 +66,13 @@ class PortfolioItemRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun addCash(name: String, amount: Double, price: Price) {
+    override suspend fun addCash(name: String, amount: Double, price: Price, exchangeRatioToUSD: Double) {
         withContext(Dispatchers.IO) {
             val newId = uniqueIdDao.generateNewId()
             val asset = AssetEntity(id = newId, name = name, portfolioItemType = ItemType.CASH)
             assetDao.insertAsset(asset)
 
-            val cash = CashEntity(id = newId, name = name, price = price, amount = amount)
+            val cash = CashEntity(id = newId, name = name, price = price, amount = amount, exchangeRatioToUSD = exchangeRatioToUSD)
             cashDao.insert(cash)
         }
     }

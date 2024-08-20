@@ -12,9 +12,9 @@ import javax.inject.Inject
 class CreateCashViewModel @Inject constructor(
     private val repository: PortfolioItemRepository
 ): ViewModel() {
-   fun  addCash(name: String, amount:Double, price: Price){
+   fun  addCash(name: String, amount:Double, price: Price, exchangeRatioToUSD: Double){
        viewModelScope.launch {
-           repository.addCash(name, amount, price)
+           repository.addCash(name, amount, price, exchangeRatioToUSD)
        }
    }
 }

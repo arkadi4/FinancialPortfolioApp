@@ -42,7 +42,7 @@ class CreateCashFragment : Fragment() {
                 priceCurrency = AppCurrencies.USD,
                 dateOfLastPriceUpdate = Calendar.getInstance()
             )
-            viewModel.addCash(name, amount, price)
+            viewModel.addCash(name, amount, price, 1.0)
         }
     }
     override fun onDestroyView() {

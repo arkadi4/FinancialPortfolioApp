@@ -33,6 +33,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnGoToSettings" />
+    <Button
+        android:id="@+id/btnGoToSelectAssetType"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/create_new_asset"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnGoToAssetList" />
 
     <TextView
         android:id="@+id/tv_massage"
