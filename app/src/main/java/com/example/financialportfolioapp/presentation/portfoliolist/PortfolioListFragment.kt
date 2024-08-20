@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.financialportfolioapp.databinding.FragmentPortfolioListBinding
 import com.example.financialportfolioapp.presentation.portfoliolist.rv.PortfolioListAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -29,6 +30,11 @@ class PortfolioListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val adapter = PortfolioListAdapter()
+        adapter.onClick = { portfolioItem ->
+            val action = PortfolioListFragmentDirections
+                .actionPortfolioListToPortfolioDetailsFragment(portfolioItem.getId())
+            findNavController().navigate(action)
+        }
         binding.portfolioListRv.adapter = adapter
         portfolioListViewModel.items.observe(viewLifecycleOwner) { items ->
             adapter.submit(items)
