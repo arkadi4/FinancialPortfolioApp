@@ -2,7 +2,6 @@ package com.example.financialportfolioapp.data.local
 
 import androidx.room.Dao
 import androidx.room.Delete
-import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Upsert
 import com.example.financialportfolioapp.data.entities.AssetEntity
