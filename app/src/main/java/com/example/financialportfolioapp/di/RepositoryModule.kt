@@ -1,6 +1,10 @@
 package com.example.financialportfolioapp.di
 
-import com.example.financialportfolioapp.data.local.AssetDao
+import com.example.financialportfolioapp.data.local.dao.AssetDao
+import com.example.financialportfolioapp.data.local.dao.BondDao
+import com.example.financialportfolioapp.data.local.dao.CashDao
+import com.example.financialportfolioapp.data.local.dao.StockDao
+import com.example.financialportfolioapp.data.local.dao.UniqueIdDao
 import com.example.financialportfolioapp.data.repository.AssetRepositoryImpl
 import com.example.financialportfolioapp.data.repository.PortfolioItemRepositoryImpl
 import com.example.financialportfolioapp.domain.repository.AssetRepository
@@ -22,7 +26,13 @@ object RepositoryModule {
 
     @Provides
     @Singleton
-    fun providePortfolioItemRepository(): PortfolioItemRepository {
-        return PortfolioItemRepositoryImpl()
+    fun providePortfolioItemRepository(
+        assetDao: AssetDao,
+        stockDao: StockDao,
+        bondDao: BondDao,
+        cashDao: CashDao,
+        uniqueIdDao: UniqueIdDao
+    ): PortfolioItemRepository {
+        return PortfolioItemRepositoryImpl(assetDao, stockDao, bondDao, cashDao, uniqueIdDao)
     }
 }

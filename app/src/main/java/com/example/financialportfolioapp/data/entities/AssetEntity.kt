@@ -8,7 +8,13 @@ import androidx.room.PrimaryKey
 data class AssetEntity(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
-    val id: Int = 0,
+    val id: Long = 0,
     @ColumnInfo(name = "name")
-    val name: String
+    val name: String,
+    @ColumnInfo(name = "type")
+    val portfolioItemType: ItemType
 )
+
+enum class ItemType {
+    STOCK, BOND, CASH
+}

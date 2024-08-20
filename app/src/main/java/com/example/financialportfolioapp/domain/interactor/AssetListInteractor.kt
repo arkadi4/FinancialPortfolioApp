@@ -15,11 +15,11 @@ class AssetListInteractor @Inject constructor(
         return assetRepository.getAssets()
     }
 
-    suspend fun deleteAssetById(id: Int) {
+    suspend fun deleteAssetById(id: Long) {
         assetRepository.deleteAssetById(id)
     }
 
-    suspend fun deleteItemById(id: Int) {
+    suspend fun deleteItemById(id: Long) {
         portfolioItemRepository.deleteItemById(id)
     }
 }

@@ -113,6 +113,44 @@
         android:textStyle="bold"
         android:text="@string/date"
         app:layout_constraintTop_toBottomOf="@id/currency_value"/>
+    <TextView
+        android:id="@+id/dividends_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textAppearance="?attr/textAppearanceSubtitle1"
+        app:layout_constraintStart_toEndOf="@id/last_price_update"
+        android:textStyle="bold"
+        android:text="@string/dividends"
+        app:layout_constraintTop_toBottomOf="@id/last_price_update_value"/>
+    <TextView
+        android:id="@+id/dividends"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textAppearance="?attr/textAppearanceSubtitle1"
+        app:layout_constraintEnd_toStartOf="@id/last_price_update_value"
+        android:text="@string/dividends_details"
+        app:layout_constraintTop_toBottomOf="@id/last_price_update_value"/>
+    <TextView
+        android:id="@+id/future_price_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textAppearance="?attr/textAppearanceSubtitle1"
+        app:layout_constraintStart_toEndOf="@id/last_price_update"
+        android:textStyle="bold"
+        android:text="@string/future_price"
+        app:layout_constraintTop_toBottomOf="@id/dividends_value"/>
+    <TextView
+        android:id="@+id/future_price"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textAppearance="?attr/textAppearanceSubtitle1"
+        app:layout_constraintEnd_toStartOf="@id/last_price_update_value"
+        android:text="@string/future_price"
+        app:layout_constraintTop_toBottomOf="@id/dividends"/>
 
 
 

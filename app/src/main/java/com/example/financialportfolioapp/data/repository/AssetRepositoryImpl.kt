@@ -1,6 +1,6 @@
 package com.example.financialportfolioapp.data.repository
 
-import com.example.financialportfolioapp.data.local.AssetDao
+import com.example.financialportfolioapp.data.local.dao.AssetDao
 import com.example.financialportfolioapp.domain.entities.Asset
 import com.example.financialportfolioapp.domain.repository.AssetRepository
 import javax.inject.Inject
@@ -13,11 +13,11 @@ class AssetRepositoryImpl @Inject constructor(
         return withContext(Dispatchers.IO) { assetDao.getAllAssets() }
     }
 
-    override suspend fun getAssetById(assetId: Int): Asset? {
-        return withContext(Dispatchers.IO) { getAssets().firstOrNull { it.id == assetId } }
+    override suspend fun getAssetById(assetId: Long): Asset? {
+        return withContext(Dispatchers.IO) { getAssets().firstOrNull { it.id.toLong() == assetId } }
     }
 
-    override suspend fun deleteAssetById(assetId: Int) {
+    override suspend fun deleteAssetById(assetId: Long) {
         withContext(Dispatchers.IO) { assetDao.deleteAssetById(assetId) }
     }
 }

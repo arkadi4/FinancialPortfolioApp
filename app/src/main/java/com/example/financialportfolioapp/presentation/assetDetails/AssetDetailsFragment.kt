@@ -8,6 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.example.financialportfolioapp.databinding.FragmentAssetDetailsBinding
+import com.example.financialportfolioapp.domain.entities.Bond
+import com.example.financialportfolioapp.domain.entities.Cash
+import com.example.financialportfolioapp.domain.entities.Stock
 import com.example.financialportfolioapp.presentation.utils.DateTimeUtils
 import com.example.financialportfolioapp.presentation.utils.DateTimeUtils.dateTimeFormatter
 import dagger.hilt.android.AndroidEntryPoint
@@ -35,23 +38,97 @@ class AssetDetailsFragment : Fragment() {
 
         assetDetailViewModel.loadItem(assetId)
 
+        fun populateScreen(
+            nameValue: String,
+            amountValue: String,
+            priceValue: String,
+            currencyValue: String,
+            lastPriceUpdateValue: String,
+            dividendsValue: String? = null,
+            futurePriceValue: String? = null
+        ) {
+            binding.apply {
+                this.nameValue.text = nameValue
+                this.amountValue.text = amountValue
+                this.priceValue.text = priceValue
+                this.currencyValue.text = currencyValue
+                this.lastPriceUpdateValue.text = lastPriceUpdateValue
+
+                dividendsValue?.let {
+                    this.dividendsValue.text = it
+                    this.dividendsValue.visibility = View.VISIBLE
+                    this.dividends.visibility = View.VISIBLE
+                } ?: run {
+                    this.dividendsValue.visibility = View.GONE
+                    this.dividends.visibility = View.GONE
+                }
+
+                futurePriceValue?.let {
+                    this.futurePriceValue.text = it
+                    this.futurePriceValue.visibility = View.VISIBLE
+                    this.futurePrice.visibility = View.VISIBLE
+                } ?: run {
+                    this.futurePriceValue.visibility = View.GONE
+                    this.futurePrice.visibility = View.GONE
+                }
+            }
+        }
+
         assetDetailViewModel.item.observe(viewLifecycleOwner) {
             val item = it ?: return@observe
 
             binding.apply {
-                nameValue.text = item.name
-                amountValue.text = item.amount.toString()
-                priceValue.text = item.price.priceValue.toString()
-                currencyValue.text = item.price.priceCurrency.toString()
-                lastPriceUpdateValue.text = item.price.dateOfLastPriceUpdate.let {
-                    DateTimeUtils.formatCalendar(it, dateTimeFormatter)
+                when (item) {
+                    is Stock -> {
+                        populateScreen(
+                            nameValue = item.name,
+                            amountValue = item.amount.toString(),
+                            priceValue = item.price.priceValue.toString(),
+                            currencyValue = item.price.priceCurrency.toString(),
+                            lastPriceUpdateValue = DateTimeUtils.formatCalendar(
+                                item.price.dateOfLastPriceUpdate,
+                                dateTimeFormatter
+                            ),
+                            dividendsValue = item.dividends.toString()
+                        )
+                    }
+
+                    is Bond -> {
+                        populateScreen(
+                            nameValue = item.name,
+                            amountValue = item.amount.toString(),
+                            priceValue = item.price.priceValue.toString(),
+                            currencyValue = item.price.priceCurrency.toString(),
+                            lastPriceUpdateValue = DateTimeUtils.formatCalendar(
+                                item.price.dateOfLastPriceUpdate,
+                                dateTimeFormatter
+                            ),
+                            futurePriceValue = item.futurePrice.priceValue.toString()
+                        )
+                    }
+
+                    is Cash -> {
+                        populateScreen(
+                            nameValue = item.name,
+                            amountValue = item.amount.toString(),
+                            priceValue = item.price.priceValue.toString(),
+                            currencyValue = item.price.priceCurrency.toString(),
+                            lastPriceUpdateValue = DateTimeUtils.formatCalendar(
+                                item.price.dateOfLastPriceUpdate,
+                                dateTimeFormatter
+                            )
+                        )
+                    }
                 }
             }
         }
+
+
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
 }

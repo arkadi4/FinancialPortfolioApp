@@ -4,11 +4,9 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "portfolio_items")
-data class PortfolioItemEntity(
+@Entity
+data class UniqueIdEntity(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
-    val id: Int = 0,
-    @ColumnInfo(name = "name")
-    val name: String
+    val id: Long = 0
 )

@@ -3,8 +3,11 @@ package com.example.financialportfolioapp.di
 import android.content.Context
 import androidx.room.Room
 import com.example.financialportfolioapp.data.local.AppDatabase
-import com.example.financialportfolioapp.data.local.AssetDao
-import com.example.financialportfolioapp.data.local.PortfolioItemDao
+import com.example.financialportfolioapp.data.local.dao.AssetDao
+import com.example.financialportfolioapp.data.local.dao.BondDao
+import com.example.financialportfolioapp.data.local.dao.CashDao
+import com.example.financialportfolioapp.data.local.dao.StockDao
+import com.example.financialportfolioapp.data.local.dao.UniqueIdDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -32,9 +35,24 @@ object DatabaseModule {
     fun provideAssetDao(db: AppDatabase): AssetDao {
         return db.assetDao()
     }
+    @Provides
+    fun provideStockDao(db: AppDatabase): StockDao {
+        return db.stockDao()
+    }
 
     @Provides
-    fun providePortfolioItemDao(db: AppDatabase): PortfolioItemDao {
-        return db.portfolioItemDao()
+    fun provideBondDao(db: AppDatabase): BondDao {
+        return db.bondDao()
+    }
+
+    @Provides
+    fun provideCashDao(db: AppDatabase): CashDao {
+        return db.cashDao()
+    }
+
+    @Provides
+    @Singleton
+    fun provideUniqueIdDao(database: AppDatabase): UniqueIdDao {
+        return database.uniqueIdDao()
     }
 }

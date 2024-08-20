@@ -7,8 +7,8 @@ import androidx.lifecycle.viewModelScope
 import com.example.financialportfolioapp.domain.entities.PortfolioItemInterface
 import com.example.financialportfolioapp.domain.repository.PortfolioItemRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import javax.inject.Inject
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @HiltViewModel
 class AssetDetailsViewModel @Inject constructor(
@@ -19,7 +19,7 @@ class AssetDetailsViewModel @Inject constructor(
 
     fun loadItem(assetId: Int) {
         viewModelScope.launch {
-            _item.value = portfolioItemRepository.getItemById(assetId)
+            _item.value = portfolioItemRepository.getItemById(assetId.toLong())
         }
     }
 }

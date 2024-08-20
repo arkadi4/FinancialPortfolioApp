@@ -4,6 +4,6 @@ import com.example.financialportfolioapp.domain.entities.Asset
 
 interface AssetRepository {
     suspend fun getAssets(): List<Asset>
-    suspend fun getAssetById(assetId: Int): Asset?
-    suspend fun deleteAssetById(assetId: Int)
+    suspend fun getAssetById(assetId: Long): Asset?
+    suspend fun deleteAssetById(assetId: Long)
 }
