@@ -7,10 +7,11 @@ import com.example.financialportfolioapp.domain.repository.PortfolioItemReposito
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+
 @HiltViewModel
 class CreateBondViewModel @Inject constructor(
     private val repository: PortfolioItemRepository
-):ViewModel() {
+) : ViewModel() {
     fun addBond(
         name: String,
         amount: Double,
@@ -23,5 +24,4 @@ class CreateBondViewModel @Inject constructor(
         }
     }
 }
-
 

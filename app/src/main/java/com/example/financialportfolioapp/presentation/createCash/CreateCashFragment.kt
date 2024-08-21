@@ -1,19 +1,17 @@
 package com.example.financialportfolioapp.presentation.createCash
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.example.financialportfolioapp.R
 import com.example.financialportfolioapp.databinding.FragmentCreateCashBinding
-import com.example.financialportfolioapp.databinding.FragmentCreateStockBinding
 import com.example.financialportfolioapp.domain.entities.AppCurrencies
 import com.example.financialportfolioapp.domain.entities.Price
-import com.example.financialportfolioapp.presentation.createStock.CreateStockViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.Calendar
+
 @AndroidEntryPoint
 class CreateCashFragment : Fragment() {
 
@@ -29,22 +27,30 @@ class CreateCashFragment : Fragment() {
         return binding.root
     }
 
+    fun saveCash() {
+        val name = binding.editName.text.toString()
+        val amount = binding.editAmount.text.toString().toDoubleOrNull() ?: 0.0
+        val priceValue = binding.editPrice.text.toString().toDoubleOrNull() ?: 0.0
+        val price = Price(
+            priceValue = priceValue,
+            priceCurrency = AppCurrencies.USD,
+            dateOfLastPriceUpdate = Calendar.getInstance()
+        )
+        val exchangeRatioToUSD = 1.0
+
+
+        viewModel.addCash(name, amount, price, exchangeRatioToUSD)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnSave.setOnClickListener {
-            val name = binding.editName.text.toString()
-            val amount = binding.editAmount.text.toString().toDoubleOrNull() ?: 0.0
-            val priceValue = binding.editPrice.text.toString().toDoubleOrNull() ?: 0.0
-
-            val price = Price(
-                priceValue = priceValue,
-                priceCurrency = AppCurrencies.USD,
-                dateOfLastPriceUpdate = Calendar.getInstance()
-            )
-            viewModel.addCash(name, amount, price, 1.0)
+            saveCash()
         }
+
     }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

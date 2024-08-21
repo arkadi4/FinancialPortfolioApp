@@ -11,6 +11,7 @@ import com.example.financialportfolioapp.domain.entities.AppCurrencies
 import com.example.financialportfolioapp.domain.entities.Price
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.Calendar
+
 @AndroidEntryPoint
 class CreateStockFragment : Fragment() {
     private val viewModel: CreateStockViewModel by viewModels()
@@ -25,24 +26,30 @@ class CreateStockFragment : Fragment() {
         return binding.root
     }
 
+    fun saveStock() {
+        val name = binding.editName.text.toString()
+        val amount = binding.editAmount.text.toString().toDoubleOrNull() ?: 0.0
+        val priceValue = binding.editPrice.text.toString().toDoubleOrNull() ?: 0.0
+        val price = Price(
+            priceValue = priceValue,
+            priceCurrency = AppCurrencies.USD,
+            dateOfLastPriceUpdate = Calendar.getInstance()
+        )
+        val dividends = binding.editDividends.text.toString().toDoubleOrNull() ?: 0.0
+
+
+
+        viewModel.addStock(name, amount, price, dividends)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnSaveStock.setOnClickListener {
-            val name = binding.editName.text.toString()
-            val amount = binding.editAmount.text.toString().toDoubleOrNull() ?: 0.0
-            val priceValue = binding.editPrice.text.toString().toDoubleOrNull() ?: 0.0
-            val dividends = binding.editDividends.text.toString().toDoubleOrNull() ?: 0.0
-
-            val price = Price(
-                priceValue = priceValue,
-                priceCurrency = AppCurrencies.USD,
-                dateOfLastPriceUpdate = Calendar.getInstance()
-            )
-
-            viewModel.addStock(name, amount, price, dividends)
+            saveStock()
         }
     }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
