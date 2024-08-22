@@ -23,16 +23,20 @@ class SelectAssetTypeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btnCreateStock.setOnClickListener{
-            val action = SelectAssetTypeFragmentDirections.actionSelectAssetTypeFragmentToCreateStockFragment()
+        binding.btnCreateStock.setOnClickListener {
+            val action =
+                SelectAssetTypeFragmentDirections.actionSelectAssetTypeFragmentToCreateStockFragment()
             findNavController().navigate(action)
         }
-        binding.btnCreateBond.setOnClickListener{
-            val action = SelectAssetTypeFragmentDirections.actionSelectAssetTypeFragmentToCreateBondFragment()
+
+        binding.btnCreateBond.setOnClickListener {
+            val action =
+                SelectAssetTypeFragmentDirections.actionSelectAssetTypeFragmentToCreateBondFragment()
             findNavController().navigate(action)
         }
-        binding.btnCreateCash.setOnClickListener{
-            val action = SelectAssetTypeFragmentDirections.actionSelectAssetTypeFragmentToCreateCashFragment()
+        binding.btnCreateCash.setOnClickListener {
+            val action =
+                SelectAssetTypeFragmentDirections.actionSelectAssetTypeFragmentToCreateCashFragment()
             findNavController().navigate(action)
         }
     }

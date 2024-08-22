@@ -16,7 +16,5 @@ class CreateStockViewModel @Inject constructor(
         viewModelScope.launch {
             portfolioItemRepository.addStock(name, amount, price, dividends)
         }
-
-
     }
 }

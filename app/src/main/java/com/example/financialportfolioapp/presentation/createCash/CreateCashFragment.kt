@@ -27,7 +27,7 @@ class CreateCashFragment : Fragment() {
         return binding.root
     }
 
-    fun saveCash() {
+    private fun saveCash() {
         val name = binding.editName.text.toString()
         val amount = binding.editAmount.text.toString().toDoubleOrNull() ?: 0.0
         val priceValue = binding.editPrice.text.toString().toDoubleOrNull() ?: 0.0
@@ -38,7 +38,6 @@ class CreateCashFragment : Fragment() {
         )
         val exchangeRatioToUSD = 1.0
 
-
         viewModel.addCash(name, amount, price, exchangeRatioToUSD)
     }
 
@@ -48,7 +47,6 @@ class CreateCashFragment : Fragment() {
         binding.btnSave.setOnClickListener {
             saveCash()
         }
-
     }
 
     override fun onDestroyView() {

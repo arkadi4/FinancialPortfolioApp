@@ -26,7 +26,7 @@ class CreateStockFragment : Fragment() {
         return binding.root
     }
 
-    fun saveStock() {
+    private fun saveStock() {
         val name = binding.editName.text.toString()
         val amount = binding.editAmount.text.toString().toDoubleOrNull() ?: 0.0
         val priceValue = binding.editPrice.text.toString().toDoubleOrNull() ?: 0.0
@@ -36,8 +36,6 @@ class CreateStockFragment : Fragment() {
             dateOfLastPriceUpdate = Calendar.getInstance()
         )
         val dividends = binding.editDividends.text.toString().toDoubleOrNull() ?: 0.0
-
-
 
         viewModel.addStock(name, amount, price, dividends)
     }

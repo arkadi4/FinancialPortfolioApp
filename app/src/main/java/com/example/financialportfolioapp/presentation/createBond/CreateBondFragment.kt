@@ -26,35 +26,33 @@ class CreateBondFragment : Fragment() {
         return binding.root
     }
 
+    private fun saveBond() {
+        val name = binding.editName.text.toString()
+        val amount = binding.editAmount.text.toString().toDoubleOrNull() ?: 0.0
+        val priceValue = binding.editPrice.text.toString().toDoubleOrNull() ?: 0.0
+        val futurePriceValue = binding.editFuturePrice.text.toString().toDoubleOrNull() ?: 0.0
+        val yieldToMaturity =
+            binding.editYieldToMaturity.text.toString().toDoubleOrNull() ?: 0.0
+
+        val price = Price(
+            priceValue = priceValue,
+            priceCurrency = AppCurrencies.USD,
+            dateOfLastPriceUpdate = Calendar.getInstance()
+        )
+        val futurePrice = Price(
+            priceValue = futurePriceValue,
+            priceCurrency = AppCurrencies.USD,
+            dateOfLastPriceUpdate = Calendar.getInstance()
+        )
+
+        viewModel.addBond(name, amount, price, futurePrice, yieldToMaturity)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        fun saveBond() {
-            val name = binding.editName.text.toString()
-            val amount = binding.editAmount.text.toString().toDoubleOrNull() ?: 0.0
-            val priceValue = binding.editPrice.text.toString().toDoubleOrNull() ?: 0.0
-            val futurePriceValue = binding.editFuturePrice.text.toString().toDoubleOrNull() ?: 0.0
-            val yieldToMaturity =
-                binding.editYieldToMaturity.text.toString().toDoubleOrNull() ?: 0.0
-
-            val price = Price(
-                priceValue = priceValue,
-                priceCurrency = AppCurrencies.USD,
-                dateOfLastPriceUpdate = Calendar.getInstance()
-            )
-            val futurePrice = Price(
-                priceValue = futurePriceValue,
-                priceCurrency = AppCurrencies.USD,
-                dateOfLastPriceUpdate = Calendar.getInstance()
-            )
-
-            viewModel.addBond(name, amount, price, futurePrice, yieldToMaturity)
-        }
-
         binding.btnSave.setOnClickListener {
             saveBond()
         }
-
     }
 
     override fun onDestroyView() {
