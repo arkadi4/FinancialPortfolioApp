@@ -152,6 +152,18 @@
         android:text="@string/future_price"
         app:layout_constraintTop_toBottomOf="@id/dividends"/>
 
+        <Button
+            android:id="@+id/btn_add"
+            android:layout_width="500dp"
+            android:layout_height="100dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="30sp"
+            android:text="Add to portfolio"
+            app:layout_constraintStart_toStartOf="parent"
+
+        />
+
 
 
 

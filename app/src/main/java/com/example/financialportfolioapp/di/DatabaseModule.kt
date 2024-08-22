@@ -2,6 +2,8 @@ package com.example.financialportfolioapp.di
 
 import android.content.Context
 import androidx.room.Room
+import androidx.room.RoomDatabase
+import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.financialportfolioapp.data.local.AppDatabase
 import com.example.financialportfolioapp.data.local.dao.AssetDao
 import com.example.financialportfolioapp.data.local.dao.BondDao
@@ -27,6 +29,12 @@ object DatabaseModule {
             "assets_database.db"
         )
             .createFromAsset("assets_database.db")
+            .addCallback(object : RoomDatabase.Callback() {
+                override fun onCreate(db: SupportSQLiteDatabase) {
+                    super.onCreate(db)
+                    db.execSQL("INSERT INTO sqlite_sequence (name, seq) VALUES ('unique_id', 3)")
+                }
+            })
             .fallbackToDestructiveMigration()
             .build()
     }
