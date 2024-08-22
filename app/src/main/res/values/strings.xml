@@ -38,5 +38,20 @@
     <string name="item_future_price">Future price: %1$s</string>
     <string name="item_yield_to_maturity">Yield to maturity: %1$s</string>
     <string name="bond_only_property">This property is for bond only</string>
+    <string name="stock_name">Stock Name</string>
+    <string name="amount">Amount</string>
+    <string name="stock_price">Price in USD</string>
+    <string name="future_price_create">Future price in USD</string>
+    <string name="yield_to_maturity">Yield to maturity\n</string>
+    <string name="save_bond">Save</string>
+    <string name="cash_name">Cash name</string>
+    <string name="save_cash">save</string>
+    <string name="stock_dividends">Dividends\n</string>
+    <string name="save_stock">Save</string>
+    <string name="dividends_details">Dividends</string>
+    <string name="create_stock">Create Stock</string>
+    <string name="create_bond">Create Bond</string>
+    <string name="create_cash">Create Cash</string>
+    <string name="create_new_asset">Create new asset</string>
 
 </resources>

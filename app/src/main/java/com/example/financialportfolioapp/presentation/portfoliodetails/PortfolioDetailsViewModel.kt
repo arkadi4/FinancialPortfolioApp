@@ -17,7 +17,7 @@ class PortfolioDetailsViewModel @Inject constructor(
     private val _item = MutableLiveData<PortfolioItemInterface?>()
     val item: LiveData<PortfolioItemInterface?> get() = _item
 
-    fun loadItem(itemId: Int) {
+    fun loadItem(itemId: Long) {
         viewModelScope.launch {
             _item.value = portfolioItemRepository.getItemById(itemId)
         }

@@ -17,5 +17,7 @@ data class CashEntity(
     @ColumnInfo(name = "amount")
     val amount: Double,
     @ColumnInfo(name = "price")
-    val price: Price
+    val price: Price,
+    @ColumnInfo(name = "exchangeRatioToUSD")
+    val exchangeRatioToUSD: Double
 )

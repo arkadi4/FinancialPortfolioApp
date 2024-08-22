@@ -3,6 +3,7 @@ package com.example.financialportfolioapp.domain.entities
 import com.example.financialportfolioapp.domain.CalendarAsStringSerializer
 import kotlinx.serialization.Serializable
 import java.util.Calendar
+
 enum class AppCurrencies(
     val currencyName: String
 ) {
@@ -20,7 +21,7 @@ class Price(
     var dateOfLastPriceUpdate: Calendar
 ) {
     fun getPriceString(): String = "$priceValue ${priceCurrency.currencyName}"
-     val history: MutableMap<@Serializable(with = CalendarAsStringSerializer::class)Calendar, String> =
+    val history: MutableMap<@Serializable(with = CalendarAsStringSerializer::class) Calendar, String> =
         mutableMapOf(dateOfLastPriceUpdate to getPriceString())
 }
 

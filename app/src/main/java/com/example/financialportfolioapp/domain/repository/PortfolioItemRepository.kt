@@ -13,7 +13,7 @@ interface PortfolioItemRepository {
         yieldToMaturity: Double
     )
 
-    suspend fun addCash(name: String, amount: Double, price: Price)
+    suspend fun addCash(name: String, amount: Double, price: Price, exchangeRatioToUSD: Double)
     suspend fun getItems(): List<PortfolioItemInterface>
     suspend fun getItemById(itemId: Long): PortfolioItemInterface?
     suspend fun deleteItemById(itemId: Long)
