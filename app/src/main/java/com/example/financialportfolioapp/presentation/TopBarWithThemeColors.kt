@@ -26,13 +26,13 @@ fun TopBarWithThemeColors(
             navigationIconContentColor = MaterialTheme.colorScheme.onPrimary,
             actionIconContentColor = MaterialTheme.colorScheme.onSecondary
         ),
-        navigationIcon =  {
+        navigationIcon = {
             if (isBackButtonExists) IconButton(navigateBack) {
                 Icon(
                     imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                     contentDescription = "ArrowBack icon"
                 )
             }
-        },
+        }
     )
 }

@@ -51,7 +51,6 @@ data class AssetDetailsScreenRoute(val assetId: Int)
 @Serializable
 data class PortfolioDetailsScreenRoute(val portfolioItemId: Int)
 
-
 @Composable
 fun AppNavigation(
     navController: NavHostController = rememberNavController()
@@ -75,19 +74,19 @@ fun AppNavigation(
         }
         composable<AssetListScreenRoute> {
             AssetListScreen(
-                navController = navController,
+                navController = navController
             )
         }
         composable<PortfolioListScreenRoute> {
             PortfolioListScreen(
-                navController = navController,
+                navController = navController
             )
         }
         composable<SettingsScreenRoute> {
             SettingsScreen(
                 navigateBack = {
                     navController.popBackStack()
-                },
+                }
             )
         }
         composable<AssetDetailsScreenRoute> {
@@ -110,18 +109,6 @@ fun AppNavigation(
         }
     }
 }
-
-//enum class Routes{
-//    Home,
-//    AssetList,
-//    PortfolioList,
-//    Settings
-//}
-
-//sealed class NavRoutes(val route: String) {
-//    object HomeScreen : NavRoutes("home")
-//    object SettingsScreen : NavRoutes("settings")
-//}
 
 @Preview
 @Composable

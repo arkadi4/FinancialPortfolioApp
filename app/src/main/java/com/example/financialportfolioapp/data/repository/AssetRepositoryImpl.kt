@@ -1,10 +1,8 @@
 package com.example.financialportfolioapp.data.repository
 
-import android.util.Log
 import com.example.financialportfolioapp.data.DataSample
 import com.example.financialportfolioapp.data.local.dao.AssetDao
 import com.example.financialportfolioapp.data.local.dao.BondDao
-import com.example.financialportfolioapp.data.local.dao.BondDao_Impl
 import com.example.financialportfolioapp.data.local.dao.CashDao
 import com.example.financialportfolioapp.data.local.dao.StockDao
 import com.example.financialportfolioapp.domain.entities.Asset
@@ -46,6 +44,6 @@ class AssetRepositoryImpl @Inject constructor(
     }
 
     override suspend fun deleteAllAssets() {
-        withContext(Dispatchers.IO) {assetDao.deleteAllAssets()}
+        withContext(Dispatchers.IO) { assetDao.deleteAllAssets() }
     }
 }

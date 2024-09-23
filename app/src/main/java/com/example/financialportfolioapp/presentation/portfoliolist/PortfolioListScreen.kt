@@ -50,9 +50,21 @@ fun PortfolioListScreen(
             }
             items(portfolioListUiState.portfolioList) { item ->
                 when (item) {
-                    is Cash -> CashItem(cash = item, navController = navController, modifier = itemModifier)
-                    is Stock -> StockItem(stock = item, navController = navController, modifier = itemModifier)
-                    is Bond -> BondItem(bond = item, navController = navController, modifier = itemModifier)
+                    is Cash -> CashItem(
+                        cash = item,
+                        navController = navController,
+                        modifier = itemModifier
+                    )
+                    is Stock -> StockItem(
+                        stock = item,
+                        navController = navController,
+                        modifier = itemModifier
+                    )
+                    is Bond -> BondItem(
+                        bond = item,
+                        navController = navController,
+                        modifier = itemModifier
+                    )
                 }
             }
             item {
@@ -61,7 +73,6 @@ fun PortfolioListScreen(
                 }
             }
         }
-
     }
 }
 

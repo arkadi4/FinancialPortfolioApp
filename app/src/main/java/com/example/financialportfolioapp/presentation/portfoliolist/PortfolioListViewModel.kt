@@ -10,14 +10,14 @@ import com.example.financialportfolioapp.domain.entities.Stock
 import com.example.financialportfolioapp.domain.repository.PortfolioItemRepository
 import com.example.financialportfolioapp.domain.repository.SettingsStorageRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 data class PortfolioListUiState(
-    val portfolioList: List<PortfolioItemInterface>,
+    val portfolioList: List<PortfolioItemInterface>
 )
 
 @HiltViewModel
@@ -30,19 +30,15 @@ class PortfolioListViewModel @Inject constructor(
     val portfolioListUiState = _portfolioListUiState.asStateFlow()
 
     init {
-//        viewModelScope.launch {
-//            settingsStorageRepository.setFirstLaunchSettings(true)
-//        }
         checkFirstLaunch()
         viewModelScope.launch {
             _portfolioListUiState.value = _portfolioListUiState.value.copy(
                 portfolioList = portfolioItemRepository.getItems()
             )
         }
-
     }
 
-    fun addSamplesWithClick(){
+    fun addSamplesWithClick() {
         viewModelScope.launch {
             loadSampleData()
             _portfolioListUiState.value = _portfolioListUiState.value.copy(
@@ -51,7 +47,7 @@ class PortfolioListViewModel @Inject constructor(
         }
     }
 
-    fun deleteAll(){
+    fun deleteAll() {
         viewModelScope.launch {
             portfolioItemRepository.deleteAll()
             _portfolioListUiState.value = _portfolioListUiState.value.copy(
@@ -62,12 +58,9 @@ class PortfolioListViewModel @Inject constructor(
 
     private fun checkFirstLaunch() {
         viewModelScope.launch {
-            if ( settingsStorageRepository.getFirstLaunchSettings().first()) {
+            if (settingsStorageRepository.getFirstLaunchSettings().first()) {
                 loadSampleData()
                 settingsStorageRepository.setFirstLaunchSettings(false)
-//                viewModelScope.launch {
-//
-//                }
             }
         }
     }

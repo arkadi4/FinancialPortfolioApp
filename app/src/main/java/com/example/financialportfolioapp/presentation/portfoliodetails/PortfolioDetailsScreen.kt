@@ -30,7 +30,7 @@ fun PortfolioDetailsScreen(
     val item by portfolioDetailsViewModel.item.collectAsState()
     Scaffold(
         topBar = {
-            TopBarWithThemeColors (
+            TopBarWithThemeColors(
                 screenName = "Portfolio item details",
                 navigateBack = navigateBack
             )
@@ -59,7 +59,10 @@ fun PortfolioDetailsScreen(
                     modifier = itemPropertyRowModifier
                 ) {
                     Text(text = "Current price:", modifier = Modifier.weight(1f))
-                    Text(text = notNullableItem.price.getPriceString(), modifier = Modifier.weight(1f))
+                    Text(
+                        text = notNullableItem.price.getPriceString(),
+                        modifier = Modifier.weight(1f)
+                    )
                 }
                 when (notNullableItem) {
                     is Cash -> Row(
@@ -67,21 +70,30 @@ fun PortfolioDetailsScreen(
                         modifier = itemPropertyRowModifier
                     ) {
                         Text(text = "Exchange ratio to USD:", modifier = Modifier.weight(1f))
-                        Text(text = notNullableItem.exchangeRatioToUSD.toString(), modifier = Modifier.weight(1f))
+                        Text(
+                            text = notNullableItem.exchangeRatioToUSD.toString(),
+                            modifier = Modifier.weight(1f)
+                        )
                     }
                     is Stock -> Row(
                         verticalAlignment = Alignment.CenterVertically,
                         modifier = itemPropertyRowModifier
                     ) {
                         Text(text = "Future price:", modifier = Modifier.weight(1f))
-                        Text(text = notNullableItem.dividends.toString(), modifier = Modifier.weight(1f))
+                        Text(
+                            text = notNullableItem.dividends.toString(),
+                            modifier = Modifier.weight(1f)
+                        )
                     }
                     is Bond -> Row(
                         verticalAlignment = Alignment.CenterVertically,
                         modifier = itemPropertyRowModifier
                     ) {
                         Text(text = "Future price:", modifier = Modifier.weight(1f))
-                        Text(text = notNullableItem.futurePrice.getPriceString(), modifier = Modifier.weight(1f))
+                        Text(
+                            text = notNullableItem.futurePrice.getPriceString(),
+                            modifier = Modifier.weight(1f)
+                        )
                     }
                 }
             } ?: run {

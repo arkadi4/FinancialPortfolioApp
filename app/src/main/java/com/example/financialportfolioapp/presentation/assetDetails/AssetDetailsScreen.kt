@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -20,14 +19,14 @@ import com.example.financialportfolioapp.presentation.TopBarWithThemeColors
 @Composable
 fun AssetDetailsScreen(
     navigateBack: () -> Unit,
-    assetId: Int,
+    assetId: Int
 ) {
     val assetDetailsViewModel = hiltViewModel<AssetDetailsViewModel>()
     assetDetailsViewModel.loadItem(assetId)
     val item by assetDetailsViewModel.item.collectAsStateWithLifecycle()
     Scaffold(
         topBar = {
-            TopBarWithThemeColors (
+            TopBarWithThemeColors(
                 screenName = "Asset details",
                 navigateBack = navigateBack
             )
@@ -51,7 +50,10 @@ fun AssetDetailsScreen(
                     modifier = propertyRowModifier
                 ) {
                     Text(text = "Current price:", modifier = Modifier.weight(1f))
-                    Text(text = notNullableItem.price.getPriceString(), modifier = Modifier.weight(1f))
+                    Text(
+                        text = notNullableItem.price.getPriceString(),
+                        modifier = Modifier.weight(1f)
+                    )
                 }
             } ?: run {
                 Text(text = "Something went wrong")

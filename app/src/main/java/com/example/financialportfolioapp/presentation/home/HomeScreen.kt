@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -18,11 +17,13 @@ import androidx.compose.ui.unit.dp
 import com.example.financialportfolioapp.R
 import com.example.financialportfolioapp.presentation.TopBarWithThemeColors
 
+const val WIDTH_FRACTION = 0.8F
+
 @Composable
 fun HomeScreen(
     navigateToAssetListScreen: () -> Unit,
     navigateToPortfolioListScreen: () -> Unit,
-    navigateToSettingsScreen: () -> Unit,
+    navigateToSettingsScreen: () -> Unit
 ) {
     Scaffold(
         topBar = {
@@ -42,19 +43,19 @@ fun HomeScreen(
         ) {
             Button(
                 navigateToAssetListScreen,
-                modifier = Modifier.fillMaxWidth(0.8f).padding(8.dp)
+                modifier = Modifier.fillMaxWidth(WIDTH_FRACTION).padding(8.dp)
             ) {
                 Text(text = stringResource(R.string.asset_list))
             }
             Button(
                 navigateToPortfolioListScreen,
-                modifier = Modifier.fillMaxWidth(0.8f).padding(8.dp)
+                modifier = Modifier.fillMaxWidth(WIDTH_FRACTION).padding(8.dp)
             ) {
                 Text(text = stringResource(R.string.portfolio_list))
             }
             Button(
                 navigateToSettingsScreen,
-                modifier = Modifier.fillMaxWidth(0.8f).padding(8.dp)
+                modifier = Modifier.fillMaxWidth(WIDTH_FRACTION).padding(8.dp)
             ) {
                 Text(text = stringResource(id = R.string.settings))
             }
@@ -68,6 +69,6 @@ fun HomeScreenPreview() {
     HomeScreen(
         navigateToAssetListScreen = {},
         navigateToPortfolioListScreen = {},
-        navigateToSettingsScreen = {},
+        navigateToSettingsScreen = {}
     )
 }

@@ -7,7 +7,6 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStoreFile
 import com.example.financialportfolioapp.data.repository.SettingsStorageRepositoryImpl
 import com.example.financialportfolioapp.domain.repository.SettingsStorageRepository
-import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,7 +16,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object  SettingsStorageModule {
+object SettingsStorageModule {
     @Singleton
     @Provides
     fun provideSettingsStorageRepository(

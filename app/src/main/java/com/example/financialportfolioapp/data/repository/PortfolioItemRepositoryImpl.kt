@@ -16,13 +16,12 @@ import com.example.financialportfolioapp.domain.entities.Bond
 import com.example.financialportfolioapp.domain.entities.Cash
 import com.example.financialportfolioapp.domain.entities.DomainItemType
 import com.example.financialportfolioapp.domain.entities.PortfolioItem
-import com.example.financialportfolioapp.domain.entities.PortfolioItemInterface
 import com.example.financialportfolioapp.domain.entities.Price
 import com.example.financialportfolioapp.domain.entities.Stock
 import com.example.financialportfolioapp.domain.repository.PortfolioItemRepository
+import javax.inject.Inject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import javax.inject.Inject
 
 class PortfolioItemRepositoryImpl @Inject constructor(
     private val assetDao: AssetDao,
@@ -103,36 +102,40 @@ class PortfolioItemRepositoryImpl @Inject constructor(
     }
 
     override suspend fun addSamples() {
-        withContext(Dispatchers.IO) { DataSample.portfolioItemsList.forEach {
+        withContext(Dispatchers.IO) {
+            DataSample.portfolioItemsList.forEach {
 //            Log.e("qqq", "item $it")
-            when (it) {
-                is Cash -> {
-                    addCash(
-                        name = it.name,
-                        amount = it.amount,
-                        price = it.price,
-                        exchangeRatioToUSD = it.exchangeRatioToUSD
-                    )
-                }
-                is Stock -> {
-                    addStock(
-                        name = it.name,
-                        amount = it.amount,
-                        price = it.price,
-                        dividends = it.dividends
-                    )
-                }
-                is Bond -> {
-                    addBond(
-                        name = it.name,
-                        amount = it.amount,
-                        price = it.price,
-                        futurePrice = it.futurePrice,
-                        yieldToMaturity = it.yieldToMaturity
-                    )
+                when (it) {
+                    is Cash -> {
+                        addCash(
+                            name = it.name,
+                            amount = it.amount,
+                            price = it.price,
+                            exchangeRatioToUSD = it.exchangeRatioToUSD
+                        )
+                    }
+
+                    is Stock -> {
+                        addStock(
+                            name = it.name,
+                            amount = it.amount,
+                            price = it.price,
+                            dividends = it.dividends
+                        )
+                    }
+
+                    is Bond -> {
+                        addBond(
+                            name = it.name,
+                            amount = it.amount,
+                            price = it.price,
+                            futurePrice = it.futurePrice,
+                            yieldToMaturity = it.yieldToMaturity
+                        )
+                    }
                 }
             }
-        } }
+        }
     }
 
     override suspend fun getAllCashObjects(): List<Cash> {
@@ -151,15 +154,6 @@ class PortfolioItemRepositoryImpl @Inject constructor(
 
     override suspend fun getPortfolioItemById(itemId: Long): PortfolioItem? {
         return withContext(Dispatchers.IO) {
-            Log.e("qqq", "itemId ${itemId}")
-//            if (cashDao.getCashById(itemId) != null) {
-//                return@withContext cashDao.getCashById(itemId)
-//            } else if (stockDao.getStockById(itemId) != null) {
-//                return@withContext stockDao.getStockById(itemId)
-//            } else if (bondDao.getBondById(itemId) != null) {
-//                return@withContext bondDao.getBondById(itemId)
-//            }
-
             val asset = assetDao.getAssetById(itemId)
             when (asset.type) {
                 DomainItemType.STOCK -> stockDao.getStockById(itemId)
@@ -171,9 +165,9 @@ class PortfolioItemRepositoryImpl @Inject constructor(
 
     override suspend fun getItemById(itemId: Long): PortfolioItem? {
         return withContext(Dispatchers.IO) {
-            Log.e("qqq", "itemId ${itemId}")
+//            Log.e("qqq", "itemId ${itemId}")
             val asset = assetDao.getAssetById(itemId)
-            Log.e("qqq", "assset ${asset}")
+//            Log.e("qqq", "assset ${asset}")
             when (asset.type) {
                 DomainItemType.STOCK -> stockDao.getStockById(itemId)
                 DomainItemType.BOND -> bondDao.getBondById(itemId)

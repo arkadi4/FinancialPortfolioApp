@@ -2,7 +2,6 @@ package com.example.financialportfolioapp.domain.repository
 
 import com.example.financialportfolioapp.domain.entities.Cash
 import com.example.financialportfolioapp.domain.entities.PortfolioItem
-import com.example.financialportfolioapp.domain.entities.PortfolioItemInterface
 import com.example.financialportfolioapp.domain.entities.Price
 
 interface PortfolioItemRepository {
