@@ -32,7 +32,7 @@ interface PortfolioItemInterface {
     val price: Price
 }
 
-abstract class PortfolioItem(
+sealed class PortfolioItem(
     override val id: Int,
     override val name: String,
     override val amount: Double,
@@ -45,7 +45,9 @@ data class Cash(
     override val amount: Double,
     override val price: Price,
     val exchangeRatioToUSD: Double
-) : PortfolioItemInterface
+) : PortfolioItem(
+    id, name, amount, price
+)
 
 data class Stock(
     override val id: Int,
@@ -53,7 +55,9 @@ data class Stock(
     override val amount: Double,
     override val price: Price,
     val dividends: Double
-) : PortfolioItemInterface
+) : PortfolioItem(
+    id, name, amount, price
+)
 
 data class Bond(
     override val id: Int,
@@ -62,7 +66,9 @@ data class Bond(
     override val price: Price,
     val futurePrice: Price,
     val yieldToMaturity: Double
-) : PortfolioItemInterface
+) : PortfolioItem(
+    id, name, amount, price
+)
 
 interface MetaInfoInterface {
     val country: String

@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Query
 import androidx.room.Upsert
 import com.example.financialportfolioapp.data.entities.StockEntity
+import com.example.financialportfolioapp.domain.entities.Cash
 import com.example.financialportfolioapp.domain.entities.Stock
 
 @Dao
@@ -13,6 +14,12 @@ interface StockDao {
 
     @Query("SELECT * FROM stocks WHERE id = :id")
     suspend fun getStockById(id: Long): Stock?
+
+    @Query("SELECT * FROM stocks")
+    suspend fun getAllStocks(): List<Stock>
+
+    @Query("DELETE FROM stocks")
+    suspend fun deleteAllStocks()
 
     @Query("DELETE FROM stocks WHERE id = :id")
     suspend fun deleteStockById(id: Long): Int

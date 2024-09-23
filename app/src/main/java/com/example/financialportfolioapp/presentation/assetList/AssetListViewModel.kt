@@ -10,8 +10,17 @@ import com.example.financialportfolioapp.domain.interactor.AssetListInteractor
 import com.example.financialportfolioapp.domain.repository.AssetRepository
 import com.example.financialportfolioapp.domain.repository.PortfolioItemRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import javax.inject.Inject
 import kotlinx.coroutines.launch
+
+data class AssetListScreenState(
+    val assetList: List<Asset>
+) {
+
+}
 
 @HiltViewModel
 class AssetListViewModel @Inject constructor(
@@ -19,11 +28,8 @@ class AssetListViewModel @Inject constructor(
     private val portfolioItemRepository: PortfolioItemRepository,
     private val interactor: AssetListInteractor
 ) : ViewModel() {
-    private val _assets = MutableLiveData<List<Asset>>()
-    val assets: LiveData<List<Asset>> get() = _assets
-
-    private val _items = MutableLiveData<List<PortfolioItemInterface>>()
-    val items: LiveData<List<PortfolioItemInterface>> get() = _items
+    private val _assets = MutableStateFlow(AssetListScreenState(emptyList()))
+    val assets = _assets.asStateFlow()
 
     init {
         loadData()
@@ -31,7 +37,15 @@ class AssetListViewModel @Inject constructor(
 
     private fun loadData() {
         viewModelScope.launch {
-            _assets.value = assetRepository.getAssets()
+//            assetRepository.addSamplesToDb()
+            _assets.value = _assets.value.copy(assetRepository.getAssets())
+        }
+    }
+
+    fun deleteAllAssets() {
+        viewModelScope.launch {
+            assetRepository.deleteAllAssets()
+            loadData()
         }
     }
 

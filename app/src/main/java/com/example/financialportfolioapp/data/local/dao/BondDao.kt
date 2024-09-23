@@ -14,6 +14,12 @@ interface BondDao {
     @Query("SELECT * FROM bonds WHERE id = :id")
     suspend fun getBondById(id: Long): Bond?
 
+    @Query("SELECT * FROM bonds")
+    suspend fun getAllBonds(): List<Bond>
+
     @Query("DELETE FROM bonds WHERE id = :id")
     suspend fun deleteBondById(id: Long): Int
+
+    @Query("DELETE FROM bonds")
+    suspend fun deleteAllBonds()
 }

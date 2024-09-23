@@ -23,4 +23,7 @@ interface AssetDao {
 
     @Query("DELETE FROM assets WHERE id = :assetId")
     suspend fun deleteAssetById(assetId: Long)
+
+    @Query("DELETE FROM assets")
+    suspend fun deleteAllAssets()
 }
