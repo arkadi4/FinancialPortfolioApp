@@ -5,7 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.financialportfolioapp.data.DataSample
 import com.example.financialportfolioapp.domain.entities.Bond
 import com.example.financialportfolioapp.domain.entities.Cash
-import com.example.financialportfolioapp.domain.entities.PortfolioItemInterface
+import com.example.financialportfolioapp.domain.entities.PortfolioItem
 import com.example.financialportfolioapp.domain.entities.Stock
 import com.example.financialportfolioapp.domain.repository.PortfolioItemRepository
 import com.example.financialportfolioapp.domain.repository.SettingsStorageRepository
@@ -17,7 +17,7 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
 data class PortfolioListUiState(
-    val portfolioList: List<PortfolioItemInterface>
+    val portfolioList: List<PortfolioItem>
 )
 
 @HiltViewModel
@@ -25,7 +25,6 @@ class PortfolioListViewModel @Inject constructor(
     private val portfolioItemRepository: PortfolioItemRepository,
     private val settingsStorageRepository: SettingsStorageRepository
 ) : ViewModel() {
-
     private val _portfolioListUiState = MutableStateFlow(PortfolioListUiState(emptyList()))
     val portfolioListUiState = _portfolioListUiState.asStateFlow()
 
@@ -96,19 +95,4 @@ class PortfolioListViewModel @Inject constructor(
             )
         }
     }
-
-//    private suspend fun mapDataToUiModel(
-//        data: List<PortfolioItemInterface>
-//    ): List<PortfolioItemUiModel> {
-//        return withContext(Dispatchers.Default) {
-//            data.map {
-//                when (it) {
-//                    is Cash -> CashUiModel(it)
-//                    is Stock -> StockUiModel(it)
-//                    is Bond -> BondUiModel(it)
-//                    else -> throw RuntimeException("Illegal view type")
-//                }
-//            }
-//        }
-//    }
 }

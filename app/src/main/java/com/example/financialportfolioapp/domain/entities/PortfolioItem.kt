@@ -1,5 +1,7 @@
 package com.example.financialportfolioapp.domain.entities
 
+import com.example.financialportfolioapp.domain.CalendarAsStringSerializer
+import java.util.Calendar
 import kotlinx.serialization.Serializable
 
 enum class AppCurrencies(
@@ -14,15 +16,14 @@ enum class AppCurrencies(
 @Serializable
 class Price(
     var priceValue: Double,
-    var priceCurrency: AppCurrencies
-//    @Serializable(with = CalendarAsStringSerializer::class)
-//    var dateOfLastPriceUpdate: Calendar
+    var priceCurrency: AppCurrencies,
+    @Serializable(with = CalendarAsStringSerializer::class)
+    var dateOfLastPriceUpdate: Calendar
 ) {
     fun getPriceString(): String = "$priceValue ${priceCurrency.currencyName}"
-//    val history: MutableMap<@Serializable(
-//        with = CalendarAsStringSerializer::class
-//    ) Calendar, String> =
-//        mutableMapOf(dateOfLastPriceUpdate to getPriceString())
+    val history: MutableMap<@Serializable(with = CalendarAsStringSerializer::class)
+        Calendar, String> =
+        mutableMapOf(dateOfLastPriceUpdate to getPriceString())
 }
 
 interface PortfolioItemInterface {

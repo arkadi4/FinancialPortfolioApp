@@ -97,6 +97,7 @@ class PortfolioItemRepositoryImpl @Inject constructor(
 
     override suspend fun getItems(): List<PortfolioItem> {
         return withContext(Dispatchers.IO) {
+            Log.e("qqq", "getItems ${cashDao.getAllCash()}")
             cashDao.getAllCash() + stockDao.getAllStocks() + bondDao.getAllBonds()
         }
     }

@@ -1,5 +1,6 @@
 package com.example.financialportfolioapp.presentation.portfoliolist
 
+import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -32,6 +33,7 @@ fun PortfolioListScreen(
     portfolioListViewModel: PortfolioListViewModel = hiltViewModel<PortfolioListViewModel>()
 ) {
     val portfolioListUiState by portfolioListViewModel.portfolioListUiState.collectAsState()
+    Log.e("qqq", "portfolioListUiState $portfolioListUiState")
     Scaffold(
         topBar = {
             TopBarWithThemeColors(

@@ -22,9 +22,9 @@ object RepositoryModule {
     @Singleton
     fun provideAssetRepository(
         assetDao: AssetDao,
+        cashDao: CashDao,
         stockDao: StockDao,
-        bondDao: BondDao,
-        cashDao: CashDao
+        bondDao: BondDao
     ): AssetRepository {
         return AssetRepositoryImpl(assetDao, cashDao, stockDao, bondDao)
     }

@@ -35,8 +35,6 @@ fun AssetDetailsScreen(
         Column(
             modifier = Modifier.padding(innerPadding)
         ) {
-//            var newName by rememberSaveable { mutableStateOf("") }
-
             item?.let { notNullableItem ->
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
