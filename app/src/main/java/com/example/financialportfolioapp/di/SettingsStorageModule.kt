@@ -30,13 +30,4 @@ object SettingsStorageModule {
             produceFile = { context.preferencesDataStoreFile("Settings storage") }
         )
     }
-
-//    @Singleton
-//    @Binds
-//    fun bindSS () {}
-
-//    @Binds
-//    fun bindSettingsStorageRepository(
-//        settingsStorageRepositoryImpl: SettingsStorageRepositoryImpl
-//    ): SettingsStorageRepository
 }

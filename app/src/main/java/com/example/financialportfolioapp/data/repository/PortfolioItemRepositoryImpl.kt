@@ -105,7 +105,6 @@ class PortfolioItemRepositoryImpl @Inject constructor(
     override suspend fun addSamples() {
         withContext(Dispatchers.IO) {
             DataSample.portfolioItemsList.forEach {
-//            Log.e("qqq", "item $it")
                 when (it) {
                     is Cash -> {
                         addCash(
@@ -115,7 +114,6 @@ class PortfolioItemRepositoryImpl @Inject constructor(
                             exchangeRatioToUSD = it.exchangeRatioToUSD
                         )
                     }
-
                     is Stock -> {
                         addStock(
                             name = it.name,
@@ -124,7 +122,6 @@ class PortfolioItemRepositoryImpl @Inject constructor(
                             dividends = it.dividends
                         )
                     }
-
                     is Bond -> {
                         addBond(
                             name = it.name,
@@ -166,9 +163,7 @@ class PortfolioItemRepositoryImpl @Inject constructor(
 
     override suspend fun getItemById(itemId: Long): PortfolioItem? {
         return withContext(Dispatchers.IO) {
-//            Log.e("qqq", "itemId ${itemId}")
             val asset = assetDao.getAssetById(itemId)
-//            Log.e("qqq", "assset ${asset}")
             when (asset.type) {
                 DomainItemType.STOCK -> stockDao.getStockById(itemId)
                 DomainItemType.BOND -> bondDao.getBondById(itemId)

@@ -89,7 +89,6 @@ class PortfolioListViewModel @Inject constructor(
                     )
                 }
             }
-//            Log.e("qqq", "_portfolioListUiState.value 2 ${_portfolioListUiState.value}")
             _portfolioListUiState.value = _portfolioListUiState.value.copy(
                 portfolioList = portfolioItemRepository.getItems()
             )

@@ -13,7 +13,6 @@ interface PortfolioItemRepository {
         futurePrice: Price,
         yieldToMaturity: Double
     )
-
     suspend fun addCash(name: String, amount: Double, price: Price, exchangeRatioToUSD: Double)
     suspend fun getItems(): List<PortfolioItem>
     suspend fun getItemById(itemId: Long): PortfolioItem?

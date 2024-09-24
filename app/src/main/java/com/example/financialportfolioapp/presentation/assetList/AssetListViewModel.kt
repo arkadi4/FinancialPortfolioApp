@@ -18,7 +18,6 @@ data class AssetListScreenState(
 @HiltViewModel
 class AssetListViewModel @Inject constructor(
     private val assetRepository: AssetRepository,
-//    private val portfolioItemRepository: PortfolioItemRepository,
     private val interactor: AssetListInteractor
 ) : ViewModel() {
     private val _assets = MutableStateFlow(AssetListScreenState(emptyList()))
@@ -30,7 +29,6 @@ class AssetListViewModel @Inject constructor(
 
     private fun loadData() {
         viewModelScope.launch {
-//            assetRepository.addSamplesToDb()
             _assets.value = _assets.value.copy(assetRepository.getAssets())
         }
     }
