@@ -13,8 +13,10 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.financialportfolioapp.R
 import com.example.financialportfolioapp.domain.entities.Bond
 import com.example.financialportfolioapp.domain.entities.Cash
 import com.example.financialportfolioapp.domain.entities.Stock
@@ -31,34 +33,45 @@ fun PortfolioDetailsScreen(
     Scaffold(
         topBar = {
             TopBarWithThemeColors(
-                screenName = "Portfolio item details",
+                screenName = stringResource(id = R.string.portfolio_details_screen_title),
                 navigateBack = navigateBack
             )
         }
     ) { innerPadding ->
         Column(
-            modifier = Modifier.padding(innerPadding).fillMaxSize()
+            modifier = Modifier
+                .padding(innerPadding)
+                .fillMaxSize()
         ) {
             item?.let { notNullableItem ->
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     modifier = itemPropertyRowModifier
                 ) {
-                    Text(text = "Name:", modifier = Modifier.weight(1f))
+                    Text(
+                        text = stringResource(id = R.string.portfolio_details_screen_item_name),
+                        modifier = Modifier.weight(1f)
+                    )
                     Text(text = notNullableItem.name, modifier = Modifier.weight(1f))
                 }
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     modifier = itemPropertyRowModifier
                 ) {
-                    Text(text = "Amount:", modifier = Modifier.weight(1f))
+                    Text(
+                        text = stringResource(id = R.string.portfolio_details_screen_item_amount),
+                        modifier = Modifier.weight(1f)
+                    )
                     Text(text = notNullableItem.amount.toString(), modifier = Modifier.weight(1f))
                 }
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     modifier = itemPropertyRowModifier
                 ) {
-                    Text(text = "Current price:", modifier = Modifier.weight(1f))
+                    Text(
+                        text = stringResource(id = R.string.portfolio_details_screen_item_current_price),
+                        modifier = Modifier.weight(1f)
+                    )
                     Text(
                         text = notNullableItem.price.getPriceString(),
                         modifier = Modifier.weight(1f)
@@ -69,7 +82,12 @@ fun PortfolioDetailsScreen(
                         verticalAlignment = Alignment.CenterVertically,
                         modifier = itemPropertyRowModifier
                     ) {
-                        Text(text = "Exchange ratio to USD:", modifier = Modifier.weight(1f))
+                        Text(
+                            text = stringResource(
+                                id = R.string.portfolio_details_screen_cash_exchange_rate
+                            ),
+                            modifier = Modifier.weight(1f)
+                        )
                         Text(
                             text = notNullableItem.exchangeRatioToUSD.toString(),
                             modifier = Modifier.weight(1f)
@@ -79,7 +97,12 @@ fun PortfolioDetailsScreen(
                         verticalAlignment = Alignment.CenterVertically,
                         modifier = itemPropertyRowModifier
                     ) {
-                        Text(text = "Future price:", modifier = Modifier.weight(1f))
+                        Text(
+                            text = stringResource(
+                                id = R.string.portfolio_details_screen_stock_dividends
+                            ),
+                            modifier = Modifier.weight(1f)
+                        )
                         Text(
                             text = notNullableItem.dividends.toString(),
                             modifier = Modifier.weight(1f)
@@ -89,7 +112,12 @@ fun PortfolioDetailsScreen(
                         verticalAlignment = Alignment.CenterVertically,
                         modifier = itemPropertyRowModifier
                     ) {
-                        Text(text = "Future price:", modifier = Modifier.weight(1f))
+                        Text(
+                            text = stringResource(
+                                id = R.string.portfolio_details_screen_bond_future_price
+                            ),
+                            modifier = Modifier.weight(1f)
+                        )
                         Text(
                             text = notNullableItem.futurePrice.getPriceString(),
                             modifier = Modifier.weight(1f)
@@ -97,7 +125,7 @@ fun PortfolioDetailsScreen(
                     }
                 }
             } ?: run {
-                Text(text = "Something went wrong")
+                Text(text = stringResource(id = R.string.portfolio_details_screen_error_text))
             }
         }
     }

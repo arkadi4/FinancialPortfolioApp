@@ -46,7 +46,7 @@ fun SettingsScreen(
     Scaffold(
         topBar = {
             TopBarWithThemeColors(
-                screenName = "Settings",
+                screenName = stringResource(id = R.string.settings_screen_title),
                 navigateBack = navigateBack
             )
         }
@@ -67,7 +67,7 @@ fun SettingsScreen(
             Button(onClick = {
                 showBottomSheet = true
             }) {
-                Text(text = "change")
+                Text(text = stringResource(id = R.string.settings_screen_change_button))
             }
         }
 
@@ -90,12 +90,14 @@ fun SettingsScreen(
                             textAlign = TextAlign.Center,
                             modifier = Modifier
                                 .clickable(onClick = {
-                                    scope.launch { sheetState.hide() }.invokeOnCompletion {
-                                        if (!sheetState.isVisible) {
-                                            settingsScreenViewModel.setDefaultCurrency(item.name)
-                                            showBottomSheet = false
+                                    scope
+                                        .launch { sheetState.hide() }
+                                        .invokeOnCompletion {
+                                            if (!sheetState.isVisible) {
+                                                settingsScreenViewModel.setDefaultCurrency(item.name)
+                                                showBottomSheet = false
+                                            }
                                         }
-                                    }
                                 })
                                 .padding(8.dp)
                                 .fillMaxWidth()

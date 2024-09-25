@@ -28,7 +28,7 @@ fun HomeScreen(
     Scaffold(
         topBar = {
             TopBarWithThemeColors(
-                screenName = "Financial portfolio app",
+                screenName = stringResource(id = R.string.home_screen_title),
                 isBackButtonExists = false,
                 navigateBack = {}
             )
@@ -43,19 +43,25 @@ fun HomeScreen(
         ) {
             Button(
                 navigateToAssetListScreen,
-                modifier = Modifier.fillMaxWidth(WIDTH_FRACTION).padding(8.dp)
+                modifier = Modifier
+                    .fillMaxWidth(WIDTH_FRACTION)
+                    .padding(8.dp)
             ) {
                 Text(text = stringResource(R.string.asset_list))
             }
             Button(
                 navigateToPortfolioListScreen,
-                modifier = Modifier.fillMaxWidth(WIDTH_FRACTION).padding(8.dp)
+                modifier = Modifier
+                    .fillMaxWidth(WIDTH_FRACTION)
+                    .padding(8.dp)
             ) {
                 Text(text = stringResource(R.string.portfolio_list))
             }
             Button(
                 navigateToSettingsScreen,
-                modifier = Modifier.fillMaxWidth(WIDTH_FRACTION).padding(8.dp)
+                modifier = Modifier
+                    .fillMaxWidth(WIDTH_FRACTION)
+                    .padding(8.dp)
             ) {
                 Text(text = stringResource(id = R.string.settings))
             }

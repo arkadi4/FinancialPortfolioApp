@@ -17,7 +17,8 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
 data class PortfolioListUiState(
-    val portfolioList: List<PortfolioItem>
+    val portfolioList: List<PortfolioItem>,
+    val isAlertDialogOnScreen: Boolean = false
 )
 
 @HiltViewModel
@@ -93,5 +94,17 @@ class PortfolioListViewModel @Inject constructor(
                 portfolioList = portfolioItemRepository.getItems()
             )
         }
+    }
+
+    fun showAlertDialog() {
+        _portfolioListUiState.value = _portfolioListUiState.value.copy(
+            isAlertDialogOnScreen = true
+        )
+    }
+
+    fun hideAlertDialog() {
+        _portfolioListUiState.value = _portfolioListUiState.value.copy(
+            isAlertDialogOnScreen = false
+        )
     }
 }

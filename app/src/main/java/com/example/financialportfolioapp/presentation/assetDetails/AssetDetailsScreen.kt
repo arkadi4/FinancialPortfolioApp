@@ -11,9 +11,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.example.financialportfolioapp.R
 import com.example.financialportfolioapp.presentation.TopBarWithThemeColors
 
 @Composable
@@ -27,7 +29,7 @@ fun AssetDetailsScreen(
     Scaffold(
         topBar = {
             TopBarWithThemeColors(
-                screenName = "Asset details",
+                screenName = stringResource(id = R.string.asset_details_screen_title),
                 navigateBack = navigateBack
             )
         }
@@ -40,21 +42,28 @@ fun AssetDetailsScreen(
                     verticalAlignment = Alignment.CenterVertically,
                     modifier = propertyRowModifier
                 ) {
-                    Text(text = "Name:", modifier = Modifier.weight(1f))
+                    Text(text = stringResource(id = R.string.asset_details_screen_asset_name),
+                        modifier = Modifier.weight(1f)
+                    )
                     Text(text = notNullableItem.name, modifier = Modifier.weight(1f))
                 }
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     modifier = propertyRowModifier
                 ) {
-                    Text(text = "Current price:", modifier = Modifier.weight(1f))
+                    Text(
+                        text = stringResource(
+                            id = R.string.asset_details_screen_asset_current_price
+                        ),
+                        modifier = Modifier.weight(1f)
+                    )
                     Text(
                         text = notNullableItem.price.getPriceString(),
                         modifier = Modifier.weight(1f)
                     )
                 }
             } ?: run {
-                Text(text = "Something went wrong")
+                Text(text = stringResource(id = R.string.asset_details_screen_error_text))
             }
         }
     }

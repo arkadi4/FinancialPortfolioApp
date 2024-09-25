@@ -1,6 +1,5 @@
 package com.example.financialportfolioapp.data.repository
 
-import android.util.Log
 import com.example.financialportfolioapp.data.DataSample
 import com.example.financialportfolioapp.data.entities.AssetEntity
 import com.example.financialportfolioapp.data.entities.BondEntity
@@ -19,9 +18,9 @@ import com.example.financialportfolioapp.domain.entities.PortfolioItem
 import com.example.financialportfolioapp.domain.entities.Price
 import com.example.financialportfolioapp.domain.entities.Stock
 import com.example.financialportfolioapp.domain.repository.PortfolioItemRepository
-import javax.inject.Inject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
 class PortfolioItemRepositoryImpl @Inject constructor(
     private val assetDao: AssetDao,
@@ -79,8 +78,6 @@ class PortfolioItemRepositoryImpl @Inject constructor(
         withContext(Dispatchers.IO) {
             val newId = uniqueIdDao.generateNewId()
             val asset = AssetEntity(id = newId, name = name, portfolioItemType = ItemType.CASH)
-
-            Log.e("qqq", "asset $asset")
             assetDao.insertAsset(asset)
 
             val cash = CashEntity(
@@ -90,14 +87,12 @@ class PortfolioItemRepositoryImpl @Inject constructor(
                 amount = amount,
                 exchangeRatioToUSD = exchangeRatioToUSD
             )
-            Log.e("qqq", "cash $cash")
             cashDao.insert(cash)
         }
     }
 
     override suspend fun getItems(): List<PortfolioItem> {
         return withContext(Dispatchers.IO) {
-            Log.e("qqq", "getItems ${cashDao.getAllCash()}")
             cashDao.getAllCash() + stockDao.getAllStocks() + bondDao.getAllBonds()
         }
     }
