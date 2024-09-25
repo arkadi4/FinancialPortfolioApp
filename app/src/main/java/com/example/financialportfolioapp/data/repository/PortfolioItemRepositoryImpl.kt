@@ -18,9 +18,9 @@ import com.example.financialportfolioapp.domain.entities.PortfolioItem
 import com.example.financialportfolioapp.domain.entities.Price
 import com.example.financialportfolioapp.domain.entities.Stock
 import com.example.financialportfolioapp.domain.repository.PortfolioItemRepository
+import javax.inject.Inject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import javax.inject.Inject
 
 class PortfolioItemRepositoryImpl @Inject constructor(
     private val assetDao: AssetDao,
@@ -109,6 +109,7 @@ class PortfolioItemRepositoryImpl @Inject constructor(
                             exchangeRatioToUSD = it.exchangeRatioToUSD
                         )
                     }
+
                     is Stock -> {
                         addStock(
                             name = it.name,
@@ -117,6 +118,7 @@ class PortfolioItemRepositoryImpl @Inject constructor(
                             dividends = it.dividends
                         )
                     }
+
                     is Bond -> {
                         addBond(
                             name = it.name,

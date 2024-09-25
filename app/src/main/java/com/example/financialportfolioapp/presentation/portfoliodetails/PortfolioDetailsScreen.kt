@@ -69,7 +69,9 @@ fun PortfolioDetailsScreen(
                     modifier = itemPropertyRowModifier
                 ) {
                     Text(
-                        text = stringResource(id = R.string.portfolio_details_screen_item_current_price),
+                        text = stringResource(
+                            id = R.string.portfolio_details_screen_item_current_price
+                        ),
                         modifier = Modifier.weight(1f)
                     )
                     Text(

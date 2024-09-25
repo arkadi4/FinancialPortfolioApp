@@ -103,7 +103,6 @@ fun PortfolioListScreen(
                     )
                 }
             }
-
         }
         if (portfolioListUiState.isAlertDialogOnScreen) {
             AlertDialog(

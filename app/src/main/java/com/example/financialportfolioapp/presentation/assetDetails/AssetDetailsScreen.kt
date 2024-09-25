@@ -42,7 +42,8 @@ fun AssetDetailsScreen(
                     verticalAlignment = Alignment.CenterVertically,
                     modifier = propertyRowModifier
                 ) {
-                    Text(text = stringResource(id = R.string.asset_details_screen_asset_name),
+                    Text(
+                        text = stringResource(id = R.string.asset_details_screen_asset_name),
                         modifier = Modifier.weight(1f)
                     )
                     Text(text = notNullableItem.name, modifier = Modifier.weight(1f))
