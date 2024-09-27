@@ -20,8 +20,13 @@ import javax.inject.Singleton
 object RepositoryModule {
     @Provides
     @Singleton
-    fun provideAssetRepository(assetDao: AssetDao): AssetRepository {
-        return AssetRepositoryImpl(assetDao)
+    fun provideAssetRepository(
+        assetDao: AssetDao,
+        cashDao: CashDao,
+        stockDao: StockDao,
+        bondDao: BondDao
+    ): AssetRepository {
+        return AssetRepositoryImpl(assetDao, cashDao, stockDao, bondDao)
     }
 
     @Provides

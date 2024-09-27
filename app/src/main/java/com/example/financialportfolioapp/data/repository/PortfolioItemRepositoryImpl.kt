@@ -11,13 +11,16 @@ import com.example.financialportfolioapp.data.local.dao.BondDao
 import com.example.financialportfolioapp.data.local.dao.CashDao
 import com.example.financialportfolioapp.data.local.dao.StockDao
 import com.example.financialportfolioapp.data.local.dao.UniqueIdDao
+import com.example.financialportfolioapp.domain.entities.Bond
+import com.example.financialportfolioapp.domain.entities.Cash
 import com.example.financialportfolioapp.domain.entities.DomainItemType
-import com.example.financialportfolioapp.domain.entities.PortfolioItemInterface
+import com.example.financialportfolioapp.domain.entities.PortfolioItem
 import com.example.financialportfolioapp.domain.entities.Price
+import com.example.financialportfolioapp.domain.entities.Stock
 import com.example.financialportfolioapp.domain.repository.PortfolioItemRepository
+import javax.inject.Inject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import javax.inject.Inject
 
 class PortfolioItemRepositoryImpl @Inject constructor(
     private val assetDao: AssetDao,
@@ -88,11 +91,74 @@ class PortfolioItemRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun getItems(): List<PortfolioItemInterface> {
-        return withContext(Dispatchers.IO) { DataSample.portfolioItemsList }
+    override suspend fun getItems(): List<PortfolioItem> {
+        return withContext(Dispatchers.IO) {
+            cashDao.getAllCash() + stockDao.getAllStocks() + bondDao.getAllBonds()
+        }
     }
 
-    override suspend fun getItemById(itemId: Long): PortfolioItemInterface? {
+    override suspend fun addSamples() {
+        withContext(Dispatchers.IO) {
+            DataSample.portfolioItemsList.forEach {
+                when (it) {
+                    is Cash -> {
+                        addCash(
+                            name = it.name,
+                            amount = it.amount,
+                            price = it.price,
+                            exchangeRatioToUSD = it.exchangeRatioToUSD
+                        )
+                    }
+
+                    is Stock -> {
+                        addStock(
+                            name = it.name,
+                            amount = it.amount,
+                            price = it.price,
+                            dividends = it.dividends
+                        )
+                    }
+
+                    is Bond -> {
+                        addBond(
+                            name = it.name,
+                            amount = it.amount,
+                            price = it.price,
+                            futurePrice = it.futurePrice,
+                            yieldToMaturity = it.yieldToMaturity
+                        )
+                    }
+                }
+            }
+        }
+    }
+
+    override suspend fun getAllCashObjects(): List<Cash> {
+        return withContext(Dispatchers.IO) {
+            cashDao.getAllCash()
+        }
+    }
+
+    override suspend fun deleteAll() {
+        withContext(Dispatchers.IO) {
+            cashDao.deleteAllCash()
+            stockDao.deleteAllStocks()
+            bondDao.deleteAllBonds()
+        }
+    }
+
+    override suspend fun getPortfolioItemById(itemId: Long): PortfolioItem? {
+        return withContext(Dispatchers.IO) {
+            val asset = assetDao.getAssetById(itemId)
+            when (asset.type) {
+                DomainItemType.STOCK -> stockDao.getStockById(itemId)
+                DomainItemType.BOND -> bondDao.getBondById(itemId)
+                DomainItemType.CASH -> cashDao.getCashById(itemId)
+            }
+        }
+    }
+
+    override suspend fun getItemById(itemId: Long): PortfolioItem? {
         return withContext(Dispatchers.IO) {
             val asset = assetDao.getAssetById(itemId)
             when (asset.type) {

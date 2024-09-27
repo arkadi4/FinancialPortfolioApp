@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name">FinancialPortfolioApp</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="asset_name">Asset Name</string>
     <string name="quantity">Quantity:</string>
     <string name="_1_5">1.5</string>
@@ -9,15 +7,13 @@
     <string name="_45000">$45000</string>
     <string name="currency">Currency</string>
     <string name="usd">USD</string>
-    <string name="lastpriceupdate">LastPriceUpdate</string>
+    <string name="last_price_update">LastPriceUpdate</string>
     <string name="date">date</string>
     <string name="asset_name_value">Asset Name:</string>
     <string name="bitcoin">Bitcoin</string>
     <string name="settings">Settings</string>
     <string name="asset_list">Asset list</string>
-    <string name="this_is_your_partfolio">This is your partfolio</string>
     <string name="portfolio_list">Portfolio List</string>
-    <string name="your_partfolios">Your partfolios</string>
     <string name="settings_fragment_text">Default currency</string>
     <string name="string_selector_button_text">change</string>
     <string name="delete">Delete</string>
@@ -53,5 +49,46 @@
     <string name="create_bond">Create Bond</string>
     <string name="create_cash">Create Cash</string>
     <string name="create_new_asset">Create new asset</string>
+    <!--screen titles-->
+    <string name="home_screen_title">Financial portfolio app</string>
+    <string name="asset_list_screen_title">Assets</string>
+    <string name="asset_details_screen_title">Asset details</string>
+    <string name="portfolio_list_screen_title">Portfolio items</string>
+    <string name="portfolio_details_screen_title">Portfolio item details</string>
+    <string name="settings_screen_title">Settings</string>
+
+    <!--asset list strings-->
+    <string name="asset_list_delete_all_button">delete all assets</string>
+    <string name="asset_list_delete_item_button">delete</string>
+    <string name="asset_list_details_button">details</string>
+
+    <!--asset details strings-->
+    <string name="asset_details_screen_asset_name">Name:</string>
+    <string name="asset_details_screen_asset_current_price">Current price:</string>
+    <string name="asset_details_screen_error_text">Something went wrong</string>
+
+    <!--portfolio list strings-->
+    <string name="portfolio_list_screen_fab_description">Floating action button</string>
+    <string name="portfolio_list_screen_fab_text">create portfolio item</string>
+    <string name="portfolio_list_screen_add_samples_button">add samples</string>
+    <string name="portfolio_list_screen_delete_all_button">delete all</string>
+    <string name="portfolio_list_screen_dialog_dismiss_button_text">Cancel</string>
+    <string name="portfolio_list_screen_dialog_confirm_button_text">Confirm</string>
+    <string name="portfolio_list_screen_dialog_title">Create new portfolio item</string>
+    <string name="portfolio_list_screen_dialog_text">Do you want to create new portfolio item?</string>
+    <string name="portfolio_list_screen_details_button">details</string>
+
+    <!--portfolio details strings-->
+    <string name="portfolio_details_screen_item_name">Name:</string>
+    <string name="portfolio_details_screen_item_amount">Amount:</string>
+    <string name="portfolio_details_screen_item_current_price">Current price:</string>
+    <string name="portfolio_details_screen_cash_exchange_rate">Exchange ratio to USD:</string>
+    <string name="portfolio_details_screen_stock_dividends">Dividends:</string>
+    <string name="portfolio_details_screen_bond_future_price">Future price:</string>
+    <string name="portfolio_details_screen_error_text">Something went wrong</string>
+
+
+    <!--settings strings-->
+    <string name="settings_screen_change_button">change</string>
 
 </resources>

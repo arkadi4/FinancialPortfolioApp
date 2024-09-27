@@ -16,4 +16,10 @@ interface CashDao {
 
     @Query("DELETE FROM cash WHERE id = :id")
     suspend fun deleteCashById(id: Long): Int
+
+    @Query("SELECT * FROM cash")
+    suspend fun getAllCash(): List<Cash>
+
+    @Query("Delete From cash")
+    suspend fun deleteAllCash()
 }

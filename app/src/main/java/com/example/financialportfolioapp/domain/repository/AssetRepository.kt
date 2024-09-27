@@ -6,4 +6,6 @@ interface AssetRepository {
     suspend fun getAssets(): List<Asset>
     suspend fun getAssetById(assetId: Long): Asset?
     suspend fun deleteAssetById(assetId: Long)
+    suspend fun addSamplesToDb()
+    suspend fun deleteAllAssets()
 }

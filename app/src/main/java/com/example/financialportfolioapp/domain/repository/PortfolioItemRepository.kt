@@ -1,6 +1,7 @@
 package com.example.financialportfolioapp.domain.repository
 
-import com.example.financialportfolioapp.domain.entities.PortfolioItemInterface
+import com.example.financialportfolioapp.domain.entities.Cash
+import com.example.financialportfolioapp.domain.entities.PortfolioItem
 import com.example.financialportfolioapp.domain.entities.Price
 
 interface PortfolioItemRepository {
@@ -12,9 +13,12 @@ interface PortfolioItemRepository {
         futurePrice: Price,
         yieldToMaturity: Double
     )
-
     suspend fun addCash(name: String, amount: Double, price: Price, exchangeRatioToUSD: Double)
-    suspend fun getItems(): List<PortfolioItemInterface>
-    suspend fun getItemById(itemId: Long): PortfolioItemInterface?
+    suspend fun getItems(): List<PortfolioItem>
+    suspend fun getItemById(itemId: Long): PortfolioItem?
     suspend fun deleteItemById(itemId: Long)
+    suspend fun addSamples()
+    suspend fun getAllCashObjects(): List<Cash>
+    suspend fun deleteAll()
+    suspend fun getPortfolioItemById(itemId: Long): PortfolioItem?
 }

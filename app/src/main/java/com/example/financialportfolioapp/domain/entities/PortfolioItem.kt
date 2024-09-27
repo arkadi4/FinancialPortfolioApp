@@ -1,8 +1,8 @@
 package com.example.financialportfolioapp.domain.entities
 
 import com.example.financialportfolioapp.domain.CalendarAsStringSerializer
-import kotlinx.serialization.Serializable
 import java.util.Calendar
+import kotlinx.serialization.Serializable
 
 enum class AppCurrencies(
     val currencyName: String
@@ -21,7 +21,8 @@ class Price(
     var dateOfLastPriceUpdate: Calendar
 ) {
     fun getPriceString(): String = "$priceValue ${priceCurrency.currencyName}"
-    val history: MutableMap<@Serializable(with = CalendarAsStringSerializer::class) Calendar, String> =
+    val history: MutableMap<@Serializable(with = CalendarAsStringSerializer::class)
+        Calendar, String> =
         mutableMapOf(dateOfLastPriceUpdate to getPriceString())
 }
 
@@ -32,7 +33,7 @@ interface PortfolioItemInterface {
     val price: Price
 }
 
-abstract class PortfolioItem(
+sealed class PortfolioItem(
     override val id: Int,
     override val name: String,
     override val amount: Double,
@@ -45,7 +46,9 @@ data class Cash(
     override val amount: Double,
     override val price: Price,
     val exchangeRatioToUSD: Double
-) : PortfolioItemInterface
+) : PortfolioItem(
+    id, name, amount, price
+)
 
 data class Stock(
     override val id: Int,
@@ -53,7 +56,9 @@ data class Stock(
     override val amount: Double,
     override val price: Price,
     val dividends: Double
-) : PortfolioItemInterface
+) : PortfolioItem(
+    id, name, amount, price
+)
 
 data class Bond(
     override val id: Int,
@@ -62,7 +67,9 @@ data class Bond(
     override val price: Price,
     val futurePrice: Price,
     val yieldToMaturity: Double
-) : PortfolioItemInterface
+) : PortfolioItem(
+    id, name, amount, price
+)
 
 interface MetaInfoInterface {
     val country: String
