@@ -24,5 +24,5 @@ fun Asset.toAssetDbEntity(): AssetEntity {
 }
 
 enum class DomainItemType {
-    STOCK, BOND, CASH
+    CASH, STOCK, BOND
 }

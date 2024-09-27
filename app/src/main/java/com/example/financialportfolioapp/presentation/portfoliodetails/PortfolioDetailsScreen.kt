@@ -2,9 +2,9 @@ package com.example.financialportfolioapp.presentation.portfoliodetails
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -135,5 +135,5 @@ fun PortfolioDetailsScreen(
 
 val itemPropertyRowModifier = Modifier
     .fillMaxWidth()
-    .fillMaxHeight(0.2f)
+    .height(70.dp)
     .padding(8.dp)

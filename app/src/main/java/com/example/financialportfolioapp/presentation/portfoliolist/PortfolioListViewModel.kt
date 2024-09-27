@@ -18,7 +18,9 @@ import kotlinx.coroutines.launch
 
 data class PortfolioListUiState(
     val portfolioList: List<PortfolioItem>,
-    val isAlertDialogOnScreen: Boolean = false
+    val isAlertDialogOnScreen: Boolean = false,
+    val isDropDownMenuExpanded: Boolean = false,
+    val selectedType: String = ""
 )
 
 @HiltViewModel
@@ -36,6 +38,24 @@ class PortfolioListViewModel @Inject constructor(
                 portfolioList = portfolioItemRepository.getItems()
             )
         }
+    }
+
+    fun selectTypeFromDropDownMenu(newType: String) {
+        _portfolioListUiState.value = _portfolioListUiState.value.copy(
+            selectedType = newType
+        )
+    }
+
+    fun toggleExpanded() {
+        _portfolioListUiState.value = _portfolioListUiState.value.copy(
+            isDropDownMenuExpanded = !_portfolioListUiState.value.isDropDownMenuExpanded
+        )
+    }
+
+    fun hideDropDownMenu() {
+        _portfolioListUiState.value = _portfolioListUiState.value.copy(
+            isDropDownMenuExpanded = false
+        )
     }
 
     fun addSamplesWithClick() {
