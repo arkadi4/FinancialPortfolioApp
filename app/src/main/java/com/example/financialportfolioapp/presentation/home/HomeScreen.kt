@@ -14,17 +14,20 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.financialportfolioapp.AssetListScreenRoute
+import com.example.financialportfolioapp.PortfolioListScreenRoute
 import com.example.financialportfolioapp.R
+import com.example.financialportfolioapp.SettingsScreenRoute
+import com.example.financialportfolioapp.navigation.LocalNavController
 import com.example.financialportfolioapp.presentation.TopBarWithThemeColors
+import com.example.financialportfolioapp.presentation.assetList.AssetListScreen
 
 const val WIDTH_FRACTION = 0.8F
 
 @Composable
 fun HomeScreen(
-    navigateToAssetListScreen: () -> Unit,
-    navigateToPortfolioListScreen: () -> Unit,
-    navigateToSettingsScreen: () -> Unit
 ) {
+    val localNavController = LocalNavController.current
     Scaffold(
         topBar = {
             TopBarWithThemeColors(
@@ -42,7 +45,7 @@ fun HomeScreen(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Button(
-                navigateToAssetListScreen,
+                onClick = { localNavController.navigate(AssetListScreenRoute) },
                 modifier = Modifier
                     .fillMaxWidth(WIDTH_FRACTION)
                     .padding(8.dp)
@@ -50,7 +53,7 @@ fun HomeScreen(
                 Text(text = stringResource(R.string.asset_list))
             }
             Button(
-                navigateToPortfolioListScreen,
+                onClick = { localNavController.navigate(PortfolioListScreenRoute) },
                 modifier = Modifier
                     .fillMaxWidth(WIDTH_FRACTION)
                     .padding(8.dp)
@@ -58,7 +61,7 @@ fun HomeScreen(
                 Text(text = stringResource(R.string.portfolio_list))
             }
             Button(
-                navigateToSettingsScreen,
+                onClick = { localNavController.navigate(SettingsScreenRoute) },
                 modifier = Modifier
                     .fillMaxWidth(WIDTH_FRACTION)
                     .padding(8.dp)
@@ -73,8 +76,5 @@ fun HomeScreen(
 @Composable
 fun HomeScreenPreview() {
     HomeScreen(
-        navigateToAssetListScreen = {},
-        navigateToPortfolioListScreen = {},
-        navigateToSettingsScreen = {}
     )
 }

@@ -1,11 +1,16 @@
 package com.example.financialportfolioapp
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.staticCompositionLocalOf
+import androidx.compose.ui.Modifier
+import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
+import com.example.financialportfolioapp.navigation.LocalNavController
 import com.example.financialportfolioapp.presentation.assetDetails.AssetDetailsScreen
 import com.example.financialportfolioapp.presentation.assetList.AssetListScreen
 import com.example.financialportfolioapp.presentation.home.HomeScreen
@@ -37,25 +42,25 @@ fun AppNavigation(
     ) {
         composable<HomeScreenRoute> {
             HomeScreen(
-                navigateToAssetListScreen = {
-                    navController.navigate(AssetListScreenRoute)
-                },
-                navigateToPortfolioListScreen = {
-                    navController.navigate(PortfolioListScreenRoute)
-                },
-                navigateToSettingsScreen = {
-                    navController.navigate(SettingsScreenRoute)
-                }
+//                navigateToAssetListScreen = {
+//                    navController.navigate(AssetListScreenRoute)
+//                },
+//                navigateToPortfolioListScreen = {
+//                    navController.navigate(PortfolioListScreenRoute)
+//                },
+//                navigateToSettingsScreen = {
+//                    navController.navigate(SettingsScreenRoute)
+//                }
             )
         }
         composable<AssetListScreenRoute> {
-            AssetListScreen(
-                navController = navController
-            )
+//            AssetListScreen(
+//                navController = navController
+//            )
         }
         composable<PortfolioListScreenRoute> {
             PortfolioListScreen(
-                navController = navController
+//                navController = navController
             )
         }
         composable<SettingsScreenRoute> {

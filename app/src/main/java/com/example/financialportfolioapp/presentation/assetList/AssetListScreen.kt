@@ -22,6 +22,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.financialportfolioapp.AssetDetailsScreenRoute
 import com.example.financialportfolioapp.R
+import com.example.financialportfolioapp.navigation.LocalNavController
 import com.example.financialportfolioapp.presentation.TopBarWithThemeColors
 
 const val CARD_HEIGHT_FRACTION = 0.2F
@@ -29,13 +30,14 @@ const val TEXT_IN_ROW_WIDTH_FRACTION = 0.2F
 
 @Composable
 fun AssetListScreen(
-    navController: NavController
+//    navController: NavController
 ) {
+    val localNav = LocalNavController.current
     Scaffold(
         topBar = {
             TopBarWithThemeColors(
                 screenName = stringResource(id = R.string.asset_list_screen_title),
-                navigateBack = { navController.popBackStack() }
+                navigateBack = { localNav.popBackStack() }
             )
         }
     ) { innerPadding ->
@@ -66,7 +68,7 @@ fun AssetListScreen(
                             Text(text = stringResource(id = R.string.asset_list_delete_item_button))
                         }
                         Button(onClick = {
-                            navController.navigate(AssetDetailsScreenRoute(item.id))
+                            localNav.navigate(AssetDetailsScreenRoute(item.id))
                         }) {
                             Text(stringResource(id = R.string.asset_list_details_button))
                         }
